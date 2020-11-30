@@ -23,3 +23,7 @@ function register() {
 
 	alert("Login Successfull");
 }
+function func() {
+
+    console.log("hello");
+}
