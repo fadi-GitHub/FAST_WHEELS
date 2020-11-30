@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sign In</title>
+<link href="css/singlePageTemplate.css" rel="stylesheet" type="text/css">
+<script src="myScript.js" runat="server" type="text/javascript">  </script>
+</head>
+
+<body>
+	<div class="form_container"  >
+	<header>
+<h2 class="logo"><img src="images/logo.png" alt="FASTwheels" width="50%" onClick="openHome()">FASTwheels</h2>
+    <nav >
+      <ul>
+        <li><a href="home.html" target="_self">HOME</a></li>
+        <li><a href="newCars.html" target="_self">NEW CARS</a> </li>
+        <li><a href="usedCars.html" target="_self">USED CARS</a></li>
+        <li> <a href="carDealers.html" target="_self">CAR DEALERS</a></li>
+        <li> <a href="autoParts.html" target="_self">AUTO PARTS</a></li>
+        <li><a href="aboutUs.html" target="_self">ABOUT</a></li>
+		<li><button onClick="loginCondition()" class="button">Post an Ad </button> </li> 
+      </ul>
+    </nav>
+  </header>
+		
+		<div align="center"  >
+		  <form id="signIn_Form">
+   
+			<h1>Login</h1>
+				
+			  <label for="email" ><strong>Email&nbsp; &nbsp; &nbsp; &nbsp;</strong></label>
+			  <input type="email" placeholder="Enter Email" name="email" required>
+				<br><br>
+	  
+				<label for="psw"><strong>Password</strong></label>  
+				<input type="password" placeholder="Enter Password" name="psw" required >
+	 
+				<br><br><br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 
+				
+				<button type="submit" class="button">Login</button>
+  
+		  </form>
+</div>		
+		
+		<div class="footer_banner" id="contact" >
+    
+			<h2 class="hidden">Footer Banner Section </h2>  
+			<p class="footer01">FOR THE LATEST NEWS UPDATES, visit our site or contact us at FASTwheels@lhr.pk</p>
+  
+		</div>
+  <!-- Copyrights Section -->
+  <div class="copyright">&copy;All rights reserved.&nbsp; </div>
+	
+			
+		
+	<!--container class end-->
+	</div>
+	  
+</body>
+</html>
