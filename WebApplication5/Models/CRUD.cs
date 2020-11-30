@@ -26,6 +26,7 @@ namespace WebApplication5.Models
             int result;
             try
             {
+                cout << "Helllo";
                 cmd = new SqlCommand("signup", con); //for running procedure
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.Add("@firstname", SqlDbType.VarChar, 15).Value = signin_firstname_bt;
