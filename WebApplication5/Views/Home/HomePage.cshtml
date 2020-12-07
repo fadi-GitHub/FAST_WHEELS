@@ -1,0 +1,121 @@
+﻿
+@{
+    ViewBag.Title = "HomePage";
+}
+
+<!doctype html>
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FASTwheels</title>
+    <link href="~/Content/singlePageTemplate.css" rel="stylesheet" />
+    <script src="~/myScript.js"></script>
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Navigation -->
+       
+        <header>
+            <h2 class="logo"><img src="~/images/logo.png" alt="FASTwheels" width="50%" onClick="openHome()">FASTwheels</h2>
+
+            <nav>
+                <ul>
+                    <li><a href="~/Views/Home/HomePage.cshtml" target="_self">HOME</a></li>
+                    <li><a href="newCars.html" target="_self">NEW CARS</a> </li>
+                    @*<li><a href="UsedCar.cshtml" target="_self">USED CARS</a></li>*@
+
+                    <li><a href="UsedCar">USED CAR</a></li>
+                    <li> <a href="carDealers.html" target="_self">CAR DEALERS</a></li>
+                    <li> <a href="autoParts.html" target="_self">AUTO PARTS</a></li>
+                    <li><a href="aboutUs.html" target="_self">ABOUT</a></li>
+                    <li><button onClick="postAd()" class="button">Post an Ad </button> </li>
+                    <li id="signIn"><a href="~/Views/Home/Index.cshtml" target="_self">|sign in </a></li>
+                    <li id="signUp"><a href="~/Views/Home/signUP.cshtml" target="_self">| sign up|</a> </li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="slider">
+
+            <img src="~/images/img1.jpg" width="100%" alt="Audi" />
+        </section>
+        <section class="about" id="about">
+            <h2 align="center">Sell Your Car on FASTwheels and Get the Best Price</h2>
+
+            <p class="text_column">
+                <strong>Post your Ad on PakWheels.</strong>
+                <br>✔ Post your Ad for Free in 3 Easy Steps
+                <br>✔ Get Genuine offers from Verified Buyers
+                <br>✔ Sell your car Fast at the Best Price
+            </p>
+
+            <p class="text_column">
+                <strong>Try PakWheels Sell It For Me</strong>
+                <br>✔ Dedicated Sales Expert to Sell your Car
+                <br>✔ We Bargain for you and share the Best Offer
+                <br>✔ We ensure Safe and Secure Transaction
+            </p>
+
+            <p class="text_column">
+                <strong>All Certified and Registered Dealers </strong>
+                <br>✔ New Car Dealers in Pakistan
+                <br>✔ Car Showrooms - Major Shareholders
+                <br>✔ Dealership Arrangements – Car Display Centers
+            </p>
+        </section>
+
+        <div class="gallery">
+            <div class="thumbnail">
+                <h1 class="stats">150+</h1>
+                <h4>Car Dealers&nbsp;</h4>
+            </div>
+            <div class="thumbnail">
+                <h1 class="stats">230+</h1>
+                <h4>New Cars&nbsp;</h4>
+            </div>
+            <div class="thumbnail">
+                <h1 class="stats">7500+</h1>
+                <h4>Auto Parts&nbsp;</h4>
+                <p>&nbsp;</p>
+            </div>
+            <div class="thumbnail">
+                <h1 class="stats">9870+</h1>
+                <h4>Used Cars&nbsp;</h4>
+
+            </div>
+        </div>
+
+        <section class="banner">
+
+            <img src="~/images/img4.jpg"  width="100%" />
+        </section>
+        <!-- More Info Section -->
+        <footer>
+            <article class="footer_column">
+                <h3>Car Inspection </h3>
+
+                <img src="~/images/img3.jpg" alt="Inspection" width="400" height="200" class="cards" />
+                <p>Get a detailed 200+ check points inspection report and buy used cars with complete peace of mind.</p>
+            </article>
+            <article class="footer_column">
+                <h3>Auto Parts</h3>
+
+                <img src="~/images/img5.jpg" alt="Auto Parts" width="400" height="200" class="cards" />
+                <p>Find All the auto parts of your vehicle. Get more than 7500+ auto parts of differnt automobile companies. </p>
+            </article>
+        </footer>
+        <!-- Footer Section -->
+        <section class="footer_banner" id="contact">
+            <h2 class="hidden">Footer Banner Section </h2>
+            <p class="footer01">FOR THE LATEST NEWS UPDATES, visit our site or contact us at FASTwheels@lhr.pk</p>
+        </section>
+        <!-- Copyrights Section -->
+        <div class="copyright">&copy;All rights reserved.&nbsp; </div>
+    </div>
+    <!-- Main Container Ends -->
+</body>
+</html>
+
