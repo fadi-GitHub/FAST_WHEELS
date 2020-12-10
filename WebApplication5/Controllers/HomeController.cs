@@ -172,5 +172,44 @@ namespace WebApplication5.Controllers
             return View("UsedCar");
         }
 
+         public ActionResult newCars()
+         {
+            return View();
+         }
+         
+        public ActionResult searchNewCars(String make, int model, String range)
+        {
+            String minRange = "";
+            String maxRange = "";
+            if (range == "upto 1,000,000")
+            {
+                minRange = "0";
+                maxRange = "1000000";
+            }
+            else if (range == "1,000,001 to 2,000,000")
+            {
+                minRange = "1000001";
+                maxRange = "2000000";
+            }
+            else if (range == "2,000,001 to 4,000,000")
+            {
+                minRange = "2000001";
+                maxRange = "4000000";
+            }
+            if (range == "4,000,001 to 8,000,000")
+            {
+                minRange = "4000001";
+                maxRange = "8000000";
+            }
+            if (range == ">8,000,000")
+            {
+                minRange = "8000001";
+                maxRange = "200000000";
+            }
+            List<newCars> newCarsList = CRUD.searchNewCars(make, model, minRange, maxRange);
+            ViewData["newCarsList"] = newCarsList;
+
+            return View("newCars");
+        }
     }
 }
