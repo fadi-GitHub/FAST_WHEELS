@@ -190,6 +190,58 @@ namespace WebApplication5.Models
             return result;
 
         }
+
+        public static List<usedCars> searchUsedCar(String make, int model, String Location, String minRange, String maxRange)
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlCommand cmd;
+       
+            List<usedCars> usedCarsList = new List<usedCars>();
+            try
+            {
+                cmd = new SqlCommand("search_used_cars", con); //for running procedure
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.Add("@CarMake", SqlDbType.VarChar, 30).Value = make;
+                cmd.Parameters.Add("@Model", SqlDbType.Int).Value =model;
+                cmd.Parameters.Add("@Location", SqlDbType.VarChar, 30).Value = Location;
+                cmd.Parameters.Add("@Min_range", SqlDbType.VarChar, 30).Value = minRange;
+                cmd.Parameters.Add("@Max_range", SqlDbType.VarChar, 30).Value = maxRange;
+
+                SqlDataReader rdr = cmd.ExecuteReader();
+                
+
+                while (rdr.Read())
+                {
+                    usedCars carObj=new usedCars();
+                    carObj.CarMake = rdr["CarMake"].ToString();
+                    carObj.CarName = rdr["CarName"].ToString();
+                    carObj.Color = rdr["Color"].ToString();
+                    carObj.mobileno = rdr["mobileno"].ToString();
+                    carObj.Location = rdr["Location"].ToString();
+                    carObj.Model = Convert.ToInt32(rdr["Model"].ToString());
+                    carObj.Description = rdr["Description"].ToString();
+                    carObj.CarPrice= rdr["CarPrice"].ToString();
+                    carObj.CarType = rdr["CarType"].ToString();
+                    carObj.OwnerCNIC = rdr["OwnerCNIC"].ToString();
+                    carObj.RegistrationNo = rdr["RegistrationNo"].ToString();
+                    usedCarsList.Add(carObj);
+                }
+
+            }
+
+            catch (SqlException ex)
+            {
+                Console.WriteLine("SQL Error" + ex.Message.ToString());
+                return null; //-1 will be interpreted as "error while connecting with the database."
+            }
+            finally
+            {
+                con.Close();
+            }
+            return usedCarsList;
+
+        }
     }
 }
 //hello just checking 
