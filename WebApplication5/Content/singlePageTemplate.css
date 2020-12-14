@@ -236,7 +236,7 @@ footer {
 	width: 400px;
 	height: 350px;
 	margin-bottom: 120px;
-	background-color: darkslategrey;
+	background-color:darkslategray;
 }
 
 #signUp_Form{
@@ -261,7 +261,14 @@ footer {
 	background-color: darkslategrey;
 	
 }
-
+#dummy_form {
+	color: #000000;
+	background-color: #FFFFFF;
+}
+.dummy_form {
+	color: #000000;
+	background-color: #FFFFFF;
+}
 .form_container{
 	height: 940px;	
 	width: 100%;

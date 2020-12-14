@@ -5,20 +5,15 @@ using System.Web;
 
 namespace WebApplication5.Models
 {
-    public class usedCars
+    public class newCars
     {
-        public String imageName;
         public String CarName;
         public String CarMake;
-        public String Color ;
-        public String mobileno ;
+        public String Color;
         public int Model;
-        public String RegistrationNo;
-        public String CarType ;
-        public String OwnerCNIC;
-        public String Location;
+        public String CarType;
         public String CarPrice;
+        public String Status;
         public String Description;
-
     }
 }
