@@ -7,6 +7,7 @@ function postAd()
 
 function loginCondition()
 {
+	//@Html.ActionLink("Used Car", "UsedCar", "Home");
 	alert("You must Login First!");
 }
 
@@ -26,4 +27,8 @@ function register() {
 function func() {
 
     console.log("hello");
+}
+function pictureURL() {
+	var img = document.getElementById("upload");
+
 }
