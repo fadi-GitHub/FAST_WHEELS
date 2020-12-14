@@ -1,7 +1,133 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "UsedCar";
 }
+@using WebApplication5.Models
+@{
 
-<h2>UsedCar</h2>
+    var usedCarList = ViewData["usedCarsList"] as List<usedCars>;
+    int count = 0;
+}
+
+
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Used Cars</title>
+    <link href="~/Content/simpleGridTemplate.css" rel="stylesheet" />
+    <link href="~/Content/singlePageTemplate.css" rel="stylesheet" />
+
+    <script src="~/myScript.js"></script>
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        
+        <header>
+            <h2 class="logo"><img src="~/images/logo.png" width="35%"/>FASTwheels</h2>
+            <nav>
+                <ul>
+                    <li><a>@Html.ActionLink("Sign In", "Index", "Home")</a> </li>
+                    <li><a href="home.html" target="_self">HOME</a></li>
+                    <li><a href="newCars.html" target="_self">NEW CARS</a> </li>
+                    <li><a href="usedCars.html" target="_self">USED CARS</a></li>
+                    <li> <a href="carDealers.html" target="_self">CAR DEALERS</a></li>
+                    <li> <a href="autoParts.html" target="_self">AUTO PARTS</a></li>
+                    <li><a href="aboutUs.html" target="_self">ABOUT</a></li>
+                    <li class="button"><a>@Html.ActionLink("Post an Ad", "postanAdd", "Home") </a> </li>
+                    <li id="signIn"><a href="signIn.html" target="_self">|sign in </a></li>
+                    <li id="signUp"><a href="signUp.html" target="_self">| sign up|</a> </li>
+                </ul>
+            </nav>
+        </header>
+        <!-- Hero Section -->
+        <section class="intro">
+            <div class="column2">
+                <h1 align="center">&nbsp; &nbsp; &nbsp;Find Cars for Sale in Pakistan</h1>
+                <p>With thousand of cars,we have just the right one for you </p>
+            </div>
+        </section>
+
+        <form method="post" action="../Home/searchUsedCars">
+            <div class="searchBar" align="center">
+
+                <label for="make"> Make &nbsp; </label>
+
+                <select name="make" id="dummy_form">
+                    <option value="select">Select </option>
+                    <option value="honda"> Honda  </option>
+                    <option value="toyatta"> Toyatta  </option>
+                    <option value="mercedes"> Mercedes  </option>
+                    <option value="audi"> Audi  </option>
+                    <option value="suzuki"> Suzuki  </option>
+                </select>
+
+                <label for="model">&nbsp; &nbsp; Model &nbsp;</label>
+                <select name="model" id="dummy_form">
+                    <option value="select"> Select Model</option>
+                    <option value="2016"> 2016  </option>
+                    <option value="2017"> 2017  </option>
+                    <option value="2018"> 2018  </option>
+                    <option value="2019"> 2019  </option>
+                    <option value="2020"> 2020  </option>
+                </select>
+
+                <label for="location">&nbsp; &nbsp; Location &nbsp;</label>
+                <select name="location" id="dummy_form">
+                    <option value="select">Choose City </option>
+                    <option value="Lahore"> Lahore  </option>
+                    <option value="Karachi"> Karachi  </option>
+                    <option value="Islamabad"> Islamabad  </option>
+                    <option value="Peshawar"> Peshawar  </option>
+                    <option value="Gujranwala"> Gujranwala  </option>
+                </select>
+
+                <label for="range"> &nbsp; &nbsp; Range &nbsp;</label>
+                <select name="range" id="dummy_form">
+                    <option value="select">Price Range </option>
+                    <option value="upto 1,000,000"> upto 1,000,000 </option>
+                    <option value="1,000,001 to 2,000,000"> 1,000,001 to 2,000,000 </option>
+                    <option value="2,000,001 to 4,000,000"> 2,000,001 to 4,000,000 </option>
+                    <option value="4,000,001 to 8,000,000"> 4,000,001 to 8,000,000 </option>
+                    <option value=">8,000,000"> >8,000,000</option>
+                </select>
+
+                <br><br>
+                @*<li> <a href="@Url.Action("searchUsedCars","Home")">Search</a></li>*@
+                <button type="submit" class="button"> Search </button>
+            </div>
+        </form>
+
+        <h2 align="center">Top used Cars in Pakistan</h2>
+        <div class="gallery">
+            @foreach (usedCars temp in usedCarList)
+            {
+
+
+                <div class="thumbnail">
+                    <img src="~/usedCarImages/@temp.imageName" alt="@temp.CarMake+@temp.CarName" width="2000" class="cards" />
+                    <h4>@temp.CarMake @temp.CarName @temp.Model</h4>
+                    <p class="tag"><strong>pkr @temp.CarPrice </strong> </p>
+                    <p class="tag">@temp.Description</p>
+                    <br>
+                    <button class="button3">Buy Now</button>
+                </div>
+
+            }
+        </div>
+        <!-- Footer Section -->
+        <section class="footer_banner" id="contact">
+            <h2 class="hidden">Footer Banner Section </h2>
+            <p class="footer01">FOR THE LATEST NEWS UPDATES, visit our site or contact us at FASTwheels@lhr.pk</p>
+        </section>
+        <!-- Copyrights Section -->
+        <!--<div class="copyright">&copy;All rights reserved.&nbsp; </div>-->
+
+    </div>
+</body>
+</html>
 

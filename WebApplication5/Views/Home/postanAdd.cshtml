@@ -1,0 +1,104 @@
+﻿
+@{
+    ViewBag.Title = "postanAdd";
+}
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Post your ad</title>
+    <link href="~/Content/singlePageTemplate.css" rel="stylesheet" />
+    <script src="~/myScript.js"></script>
+</head>
+
+<body>
+
+    <div class="form_container">
+        <header>
+            <h2 class="logo"><img src="images/logo.png" alt="FASTwheels" width="50%" onClick="openHome()">FASTwheels</h2>
+            <nav>
+                <ul>
+                    <li><a href="home.html" target="_self">HOME</a></li>
+                    <li><a href="newCars.html" target="_self">NEW CARS</a> </li>
+                    <li><a href="usedCars.html" target="_self">USED CARS</a></li>
+                    <li> <a href="carDealers.html" target="_self">CAR DEALERS</a></li>
+                    <li> <a href="autoParts.html" target="_self">AUTO PARTS</a></li>
+                    <li><a href="aboutUs.html" target="_self">ABOUT</a></li>
+                    <li><button class="button">Post an Ad </button> </li>
+                </ul>
+            </nav>
+        </header>
+
+        <div align="center">
+            @using (Html.BeginForm("creatingPost",
+                             "Home",
+                             FormMethod.Post,
+                             new {  enctype = "multipart/form-data" }))
+            {
+        <form id="sellCar_Form" method="post" action="../Home/creatingPost">
+
+            <h1>Post Your Ad</h1>
+
+            <label for="carName"> Car Name &nbsp;</label>
+            <input type="text" id="CarName" placeholder="Civic,Corolla etc" name="carName" required>
+            &nbsp; &nbsp;&nbsp;
+            <label for="OwnerCNIC"> Owner CNIC &nbsp;</label>
+            <input type="text" id="OwnerCNIC" placeholder="e.g.XXXXX-XXXXXXX-X " name="OwnerCNIC" required>
+            <br><br>
+
+            <label for="carMake"> Car Make&nbsp; &nbsp;</label>
+            <input type="text" id="CarMake" placeholder="Honda etc" name="carMake" required>
+
+
+            <label for="mobileno"> &nbsp; &nbsp; &nbsp; Mobile&nbsp;No&nbsp; &nbsp; &nbsp;</label>
+            <input type="number" id="mobileno" placeholder="Mobile Number" name="mobileno" required>
+            <br><br>
+
+            <label for="Model"> &nbsp; Model&nbsp; &nbsp; &nbsp; &nbsp;</label>
+            <input type="number" id="Model" placeholder="Year e.g.(2018)" name="Model" required>
+
+
+            <label for="location"> &nbsp; &nbsp; &nbsp; &nbsp; Location&nbsp; &nbsp; &nbsp;</label>
+            <input type="text" id="Location" placeholder="City" name="location" required>
+            <br><br>
+
+            <label for="carType"> &nbsp; &nbsp; Type&nbsp; &nbsp; &nbsp; &nbsp;</label>
+            <input type="text" id="CarType" placeholder="CC e.g.(1000CC)" name="carType" required>
+            &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;
+            <label for="carPrice"> Price&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
+            <input type="text" id="CarPrice" placeholder="e.g. 20 lac" name="carPrice" required>
+            <br><br>
+
+            <label for="Color"> &nbsp; &nbsp; &nbsp;Color&nbsp; &nbsp; &nbsp;</label>
+            <input type="text" id="Color" placeholder="e.g. black" name="Color" required>
+
+            <label for="RegistrationNo"> &nbsp; &nbsp; Registration&nbsp; &nbsp;&nbsp;</label>
+            <input type="text" id="RegistrationNo" placeholder="e.g. LEX-1234" name="RegistrationNo" required />
+            <br><br>
+
+            <textarea maxlength="400" rows="8" cols="60" name="Description" id="Description" placeholder="Write brief description..." spellcheck="true"></textarea>
+            <br><br>
+
+            <input type="file" accept="image/*" id="img" name="img" value="img" enctype="multipart/form-data" method="post" required />
+            <br><br>
+            <button type="submit" class="button">Post ad</button>
+        </form>
+            }
+        </div>
+
+            <div class="footer_banner" id="contact">
+
+                <h2 class="hidden">Footer Banner Section </h2>
+                <p class="footer01">FOR THE LATEST NEWS UPDATES, visit our site or contact us at FASTwheels@lhr.pk</p>
+
+            </div>
+            <!-- Copyrights Section -->
+            <div class="copyright">&copy;All rights reserved.&nbsp; </div>
+            <!--container class end-->
+        </div>
+    </body>
+    </html>
+
+

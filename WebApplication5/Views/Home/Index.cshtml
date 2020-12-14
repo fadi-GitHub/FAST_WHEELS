@@ -3,6 +3,11 @@
 }
 @model String
 
+@*@using WebApplication5.Models
+@{
+   string email=ViewData["userEmail"]as string;
+}*@
+
 <!doctype html>
 <html>
 <head>
@@ -19,36 +24,39 @@
 <body>
     <div class="form_container">
         <header>
-               
-                <h2 class="logo"><img src="~/images/logo.png" alt="FASTwheels" width="35%" onClick="openHome()"/>FASTwheels</h2>
-                <nav>
-                    <ul>
-                        <li><a href="home.html" target="_self">HOME</a></li>
-                        <li><a href="newCars.html" target="_self">NEW CARS</a> </li>
-                        <li><a href="usedCars.html" target="_self">USED CARS</a></li>
-                        <li> <a href="carDealers.html" target="_self">CAR DEALERS</a></li>
-                        <li> <a href="autoParts.html" target="_self">AUTO PARTS</a></li>
-                        <li><a href="aboutUs.html" target="_self">ABOUT</a></li>
-                        <li><button onClick="loginCondition()" class="button">Post an Ad </button> </li>
 
-                        <li><a href="~/Home/signUP">Sign UP</a></li>
-                        @*<li>@Html.ActionLink("signUP")</li>*@
-                    </ul>
-                </nav>
-                
+            <h2 class="logo"><img src="~/images/logo.png" alt="FASTwheels" width="35%" onClick="openHome()" />FASTwheels</h2>
+            <nav>
+                <ul>
+
+                    <li><a>@Html.ActionLink("Home", "HomePage", "Home")</a></li>
+                    <li><a>@Html.ActionLink("Used Car", "UsedCar", "Home")</a> </li>
+                    <li><a>@Html.ActionLink("Sign In", "Index", "Home")</a> </li>
+                    <li><a>@Html.ActionLink("Sign Up", "signUP", "Home")</a> </li>
+                    <li><a href="newCars.html" target="_self">NEW CARS</a> </li>
+                    <li> <a href="carDealers.html" target="_self">CAR DEALERS</a></li>
+                    <li> <a href="autoParts.html" target="_self">AUTO PARTS</a></li>
+                    <li><a href="aboutUs.html" target="_self">ABOUT</a></li>
+                    <li><button onClick="loginCondition()" class="button">Post an Ad </button> </li>
+
+                    <li><a href="~/Home/signUP">Sign UP</a></li>
+
+                </ul>
+            </nav>
+
         </header>
 
         <div align="center">
-            <form id="signIn_Form" method="post" action="../Home/buyUsedCar">
+            <form id="signIn_Form" method="post" action="../Home/signIN">
 
                 <h1>Login</h1>
 
                 <label for="email"><strong>Email&nbsp; &nbsp; &nbsp; &nbsp;</strong></label>
-                <input id="email" type="email" name="email" />
+                <input  id="dummy_form" type="email" name="email" />
                 <br><br>
 
                 <label for="password"><strong>Password</strong></label>
-                <input id="password" type="password" name="password" />
+                <input  id="dummy_form" type="password" name="password" />
 
 
                 <br><br><br>
