@@ -83,7 +83,7 @@ namespace WebApplication5.Models
                 cmd.Parameters.Add("@password", SqlDbType.VarChar, 15).Value = password;
 
                 //SqlDataReader rdr = cmd.ExecuteReader();
-                //cmd.Parameters.Add("@status", SqlDbType.Int).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("@status", SqlDbType.Int).Direction = ParameterDirection.Output;
                 SqlDataReader rdr = cmd.ExecuteReader();
                 
                    // cmd.ExecuteNonQuery();
