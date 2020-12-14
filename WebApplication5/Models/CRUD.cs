@@ -27,7 +27,6 @@ namespace WebApplication5.Models
             int result;
             try
             {
-                cout << "Helllo";
                 cmd = new SqlCommand("signup", con); //for running procedure
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.Add("@firstname", SqlDbType.VarChar, 15).Value = signin_firstname_bt;
@@ -424,6 +423,44 @@ namespace WebApplication5.Models
             return autopartList;
         }
 
+        public static List<Dealers> getAllDealers()
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlCommand cmd;
+
+            List<Dealers> dealersList = new List<Dealers>();
+            try
+            {
+                cmd = new SqlCommand("getall_dealers", con); //for running procedure
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+
+                while (rdr.Read())
+                {
+                    Dealers dObj = new Dealers();
+                    dObj.Name = rdr["Name"].ToString();
+                    dObj.PhoneNo = rdr["PhoneNo"].ToString();
+                    dObj.City = rdr["City"].ToString();
+                    dObj.Address = rdr["Address"].ToString();
+                    dealersList.Add(dObj);
+                }
+            }
+
+            catch (SqlException ex)
+            {
+                Console.WriteLine("SQL Error" + ex.Message.ToString());
+                return null; //-1 will be interpreted as "error while connecting with the database."
+            }
+            finally
+            {
+                con.Close();
+            }
+            return dealersList;
+        }
+
         public static int buyAutoPart(String carMake, String carName, String itemName, String Color)
         {
             SqlConnection con = new SqlConnection(connectionString);
@@ -465,5 +502,6 @@ namespace WebApplication5.Models
         ////// Dealer Methods /////////
         
     }
+
 }
 //hello just checking 

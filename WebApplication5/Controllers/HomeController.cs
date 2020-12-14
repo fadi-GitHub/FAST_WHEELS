@@ -251,9 +251,21 @@ namespace WebApplication5.Controllers
             return View();
         }
 
+        public ActionResult Dealers()
+        {
+            return View();
+        }
+
         public ActionResult Autostore()
         {
             return View();
+        }
+
+        public ActionResult getAllDealers()
+        {
+            List<Dealers> dealersList = CRUD.getAllDealers();
+            TempData["dealerstList"] = dealersList;
+            return RedirectToAction("Dealers");
         }
 
         public ActionResult searchAutoPart(String carMake,String carName,String itemName) 
