@@ -253,20 +253,19 @@ namespace WebApplication5.Controllers
 
         public ActionResult Dealers()
         {
+            if (TempData["dealersList"] != null)
+                ViewData["dealersList"] = TempData["dealersList"];
             return View();
         }
 
         public ActionResult Autostore()
         {
+            if (TempData["autopartList"] != null)
+                ViewData["autopartList"] = TempData["autopartList"];
             return View();
         }
 
-        public ActionResult getAllDealers()
-        {
-            List<Dealers> dealersList = CRUD.getAllDealers();
-            TempData["dealerstList"] = dealersList;
-            return RedirectToAction("Dealers");
-        }
+
 
         public ActionResult searchAutoPart(String carMake,String carName,String itemName) 
         {
@@ -302,5 +301,11 @@ namespace WebApplication5.Controllers
 
 
         ////// Dealer Methods /////////
+        public ActionResult getAllDealers()
+        {
+            List<Dealers> dealersList = CRUD.getAllDealers();
+            TempData["dealersList"] = dealersList;
+            return RedirectToAction("Dealers");
+        }
     }
 }

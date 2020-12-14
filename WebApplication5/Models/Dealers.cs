@@ -11,5 +11,6 @@ namespace WebApplication5.Models
         public String PhoneNo;
         public String City;
         public String Address;
+        public String ImageName;
     }
 }

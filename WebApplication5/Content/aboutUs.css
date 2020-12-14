@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -14,7 +14,7 @@ html {
 }
 
 .column2 {
-  float: left;
+ float: left;
   width: 25%;
   margin-bottom: 60px;
   padding: 0 8px;
@@ -279,4 +279,20 @@ footer {
 .hidden {
 	display: none;
 }
+select {
+	width: 140px;
+	margin: 5px;
+}
 
+	select:focus {
+		min-width: 140px;
+		width: auto;
+	}
+imag {
+	height:50px;
+	width:50px;
+}
+#dummy_form {
+	color: #000000;
+	background-color: #FFFFFF;
+}

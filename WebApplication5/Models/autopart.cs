@@ -10,6 +10,7 @@ namespace WebApplication5.Models
         public String carMake;
         public String carName;
         public String itemName;
+        public String Color;
         public int price;
         public int quantity;
         public String imageName;
