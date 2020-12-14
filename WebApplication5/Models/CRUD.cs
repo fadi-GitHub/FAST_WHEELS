@@ -27,6 +27,7 @@ namespace WebApplication5.Models
             int result;
             try
             {
+                cout << "Helllo";
                 cmd = new SqlCommand("signup", con); //for running procedure
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.Add("@firstname", SqlDbType.VarChar, 15).Value = signin_firstname_bt;
@@ -336,6 +337,133 @@ namespace WebApplication5.Models
             return newCarsList;
 
         }
+
+        ////// Auto Partss Methods ////////////
+        public static List<autopart> searchAutoPart(String carMake, String carName, String itemName) 
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlCommand cmd;
+
+            List<autopart> autopartList = new List<autopart>();
+            try
+            {
+                cmd = new SqlCommand("search_autoparts", con); //for running procedure
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.Add("@CarMake", SqlDbType.VarChar, 20).Value = carMake;
+                cmd.Parameters.Add("@CarName", SqlDbType.VarChar,20).Value = carName;
+                cmd.Parameters.Add("@ItemName", SqlDbType.VarChar, 20).Value = itemName;
+
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+
+                while (rdr.Read())
+                {
+                    autopart partObj = new autopart();
+                    partObj.imageName = rdr["images"].ToString();
+                    partObj.carMake = rdr["car_Make"].ToString();
+                    partObj.carName = rdr["car_Name"].ToString();
+                    partObj.itemName = rdr["item_Name"].ToString();
+                    partObj.price = Convert.ToInt32(rdr["Price"].ToString());
+                    partObj.quantity = Convert.ToInt32(rdr["Quantity"].ToString());
+                 
+                    autopartList.Add(partObj);
+                }
+            }
+
+            catch (SqlException ex)
+            {
+                Console.WriteLine("SQL Error" + ex.Message.ToString());
+                return null; //-1 will be interpreted as "error while connecting with the database."
+            }
+            finally
+            {
+                con.Close();
+            }
+            return autopartList;
+        }
+
+        public static List<autopart> getAllAutoParts()
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlCommand cmd;
+
+            List<autopart> autopartList = new List<autopart>();
+            try
+            {
+                cmd = new SqlCommand("getall_autoparts", con); //for running procedure
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+
+                while (rdr.Read())
+                {
+                    autopart partObj = new autopart();
+                    partObj.imageName = rdr["images"].ToString();
+                    partObj.carMake = rdr["car_Make"].ToString();
+                    partObj.carName = rdr["car_Name"].ToString();
+                    partObj.itemName = rdr["item_Name"].ToString();
+                    partObj.price = Convert.ToInt32(rdr["Price"].ToString());
+                    partObj.quantity = Convert.ToInt32(rdr["Quantity"].ToString());
+
+                    autopartList.Add(partObj);
+                }
+            }
+
+            catch (SqlException ex)
+            {
+                Console.WriteLine("SQL Error" + ex.Message.ToString());
+                return null; //-1 will be interpreted as "error while connecting with the database."
+            }
+            finally
+            {
+                con.Close();
+            }
+            return autopartList;
+        }
+
+        public static int buyAutoPart(String carMake, String carName, String itemName, String Color)
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlCommand cmd;
+            int result;
+
+            try
+            {
+                cmd = new SqlCommand("buy_autoparts", con); //for running procedure
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.Add("@CarMake", SqlDbType.VarChar, 20).Value = carMake;
+                cmd.Parameters.Add("@CarName", SqlDbType.VarChar, 20).Value = carName;
+                cmd.Parameters.Add("@ItemName", SqlDbType.VarChar, 20).Value = itemName;
+                cmd.Parameters.Add("@Color", SqlDbType.VarChar, 10).Value = Color;
+
+
+                //SqlDataReader rdr = cmd.ExecuteReader();
+                cmd.Parameters.Add("@Flag", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                cmd.ExecuteNonQuery();
+
+                result = Convert.ToInt32(cmd.Parameters["@Flag"].Value);
+            }
+
+            catch (SqlException ex)
+            {
+                Console.WriteLine("SQL Error" + ex.Message.ToString());
+                result = -1; //-1 will be interpreted as "error while connecting with the database."
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return result;
+        }
+
+        ////// Dealer Methods /////////
+        
     }
 }
 //hello just checking 
