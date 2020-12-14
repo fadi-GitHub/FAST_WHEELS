@@ -363,6 +363,8 @@ namespace WebApplication5.Models
                     partObj.carMake = rdr["car_Make"].ToString();
                     partObj.carName = rdr["car_Name"].ToString();
                     partObj.itemName = rdr["item_Name"].ToString();
+                    partObj.Color = rdr["Color"].ToString();
+
                     partObj.price = Convert.ToInt32(rdr["Price"].ToString());
                     partObj.quantity = Convert.ToInt32(rdr["Quantity"].ToString());
                  
@@ -404,6 +406,7 @@ namespace WebApplication5.Models
                     partObj.carMake = rdr["car_Make"].ToString();
                     partObj.carName = rdr["car_Name"].ToString();
                     partObj.itemName = rdr["item_Name"].ToString();
+                    partObj.Color= rdr["Color"].ToString();
                     partObj.price = Convert.ToInt32(rdr["Price"].ToString());
                     partObj.quantity = Convert.ToInt32(rdr["Quantity"].ToString());
 
@@ -445,6 +448,7 @@ namespace WebApplication5.Models
                     dObj.PhoneNo = rdr["PhoneNo"].ToString();
                     dObj.City = rdr["City"].ToString();
                     dObj.Address = rdr["Address"].ToString();
+                    dObj.ImageName = rdr["Images"].ToString();
                     dealersList.Add(dObj);
                 }
             }

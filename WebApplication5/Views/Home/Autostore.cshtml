@@ -2,6 +2,126 @@
 @{
     ViewBag.Title = "Autostore";
 }
+@using WebApplication5.Models
+@{
 
-<h2>Autostore</h2>
+    var autopartList = ViewData["autopartList"] as List<autopart>;
+ }
+
+        <!doctype html>
+        <html>
+        <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>Car Accessories,parts etc</title>
+
+            <link href="~/Content/aboutUs.css" rel="stylesheet" />
+            <script src="~/myScript.js"></script>
+        </head>
+
+        <body>
+            <div class="container">
+                <header>
+                    <h2 class="logo"><img src="images/logo.png" alt="FASTwheels" width="50%" onClick="openHome()">FASTwheels</h2>
+                    <nav>
+                        <ul>
+                            <li><a>@Html.ActionLink("Home", "HomePage", "Home")</a></li>
+                            <li> <a href="@Url.Action("getAllUsedCars","Home")">UsedCar</a></li>
+
+                            <li><a>@Html.ActionLink("Sign In", "Index", "Home")</a> </li>
+                            <li><a>@Html.ActionLink("Sign Up", "signUP", "Home")</a> </li>
+                            <li><a href="newCars.html" target="_self">NEW CARS</a> </li>
+                            <li> <a href="@Url.Action("getAllDealers","Home")">Dealers</a></li>
+
+                            <li> <a href="autoParts.html" target="_self">AUTO PARTS</a></li>
+                            <li><a href="aboutUs.html" target="_self">ABOUT</a></li>
+                            <li class="button"><a>@Html.ActionLink("Post an Ad", "postanAdd", "Home") </a> </li>
+                        </ul>
+                    </nav>
+                </header>
+                <div class="sub-header">
+                    <h1>Auto Parts and Car Accessories for Sale in Pakistan</h1>
+                    <p>Your one stop online shop for all car parts and accessories</p>
+                </div>
+
+                <h2 style="text-align:center">Find Latest Accessories and parts for Your Car</h2>
+
+                <form method="post" action="../Home/searchAutoPart">
+                    <div class="searchBar" align="center">
+
+                        <label for="carMake"> &nbsp; Car Make  &nbsp;</label>
+                        <select name="carMake" id="dummy_form">
+                            <option value="select">Select Make </option>
+                            <option value="Honda "> Honda   </option>
+                            <option value="Suzuki"> Suzuki  </option>
+                            <option value="Toyata"> Toyata  </option>
+                            <option value="Audi"> Audi  </option>
+                            <option value="BMW"> BMW  </option>
+                        </select>
+
+                        <label for="name">&nbsp; &nbsp; Car Name &nbsp;</label>
+                        <select name="carName" id="dummy_form">
+                            <option value="Select"> Select Car </option>
+                            <option value="Civic"> Civic  </option>
+                            <option value="City"> City  </option>
+                            <option value="Cultus"> Cultus  </option>
+                            <option value="WagonR"> WagonR  </option>
+                            <option value="Corolla"> Corolla  </option>
+                            <option value="Mehran"> Mehran  </option>
+                        </select>
+
+                        <label for="part"> &nbsp; &nbsp; Part Name &nbsp;</label>
+                        <select name="itemName" id="dummy_form">
+                            <option value="select">Select Part</option>
+                            <option value="Bumper"> Front Bumper </option>
+                            <option value="Bumper"> Back Bumper</option>
+                            <option value="Foglight"> Fog Light</option>
+                            <option value="HeadLight"> HeadLight</option>
+                            <option value="RearRim"> Rear Rim</option>
+                            <option value="FrontRim"> Front Rim</option>
+                        </select>
+
+                        <br><br>
+                        <button type="submit" class="button"> Search </button>
+                    </div>
+                 </form>
+                <div class="row">
+                    <form method="post" action="../Home/buyAutoPart">
+                        @foreach (autopart temp in autopartList)
+                        {
+                            <div class="column3">
+                                <div class="card2" align="center">
+                                    <img src="~/autopartImages/@temp.imageName" style="width:60%">
+
+                                    <div class="container2">
+                                        <h3>@temp.carName @temp.itemName</h3>
+                                        <p class="title">pkr @temp.price</p>
+                                        <p> Free Shipping</p>
+                                        <a href="@Url.Action("buyAutoPart", "Home",new{carMake=@temp.carMake,carName=@temp.carName,itemName=@temp.itemName,Color=@temp.Color })">Buy</a>
+                                        
+                                    </div>
+
+                                </div>
+                            </div>
+                        }
+                    </form>
+
+
+
+                    </div>
+                    <footer>
+                        <!-- Footer Section -->
+                        <section class="footer_banner" id="contact">
+                            <h2 class="hidden">Footer Banner Section </h2>
+                            <p class="footer01">FOR THE LATEST NEWS UPDATES, visit our site or contact us at FASTwheels@lhr.pk</p>
+                        </section>
+                        <!-- Copyrights Section -->
+                        <div class="copyright">&copy;All rights reserved.&nbsp; </div>
+                    </footer>
+
+            </div>
+
+        </body>
+    </html>
 
