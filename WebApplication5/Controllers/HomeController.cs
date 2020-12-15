@@ -250,5 +250,62 @@ namespace WebApplication5.Controllers
         {
             return View();
         }
+
+        public ActionResult Dealers()
+        {
+            if (TempData["dealersList"] != null)
+                ViewData["dealersList"] = TempData["dealersList"];
+            return View();
+        }
+
+        public ActionResult Autostore()
+        {
+            if (TempData["autopartList"] != null)
+                ViewData["autopartList"] = TempData["autopartList"];
+            return View();
+        }
+
+
+
+        public ActionResult searchAutoPart(String carMake,String carName,String itemName) 
+        {
+            List<autopart> autopartList = CRUD.searchAutoPart(carMake,carName,itemName);
+            TempData["autopartList"] = autopartList;
+
+            return RedirectToAction("Autostore");
+        }
+
+        public ActionResult getAllAutoParts()
+        {
+            List<autopart> autopartList = CRUD.getAllAutoParts();
+            TempData["autopartList"] = autopartList;
+            return RedirectToAction("Autostore");
+        }
+        public ActionResult buyAutoPart(String carMake, String carName, String itemName, String Color)
+        {
+            int result = CRUD.buyAutoPart(carMake, carName, itemName, Color);
+            if (result == -1)
+            {
+                String data = "Something went wrong while connecting with the database.";
+                return View("Autostore", (object)data);
+            }
+            else if (result == 0)
+            {
+
+                String data = "Auto Part Cannot be bought";
+                return View("Autostore", (object)data);
+            }
+            String data1 = "AutoPart Bought";
+            return View("Autostore", (object)data1);
+        }
+
+
+        ////// Dealer Methods /////////
+        public ActionResult getAllDealers()
+        {
+            List<Dealers> dealersList = CRUD.getAllDealers();
+            TempData["dealersList"] = dealersList;
+            return RedirectToAction("Dealers");
+        }
     }
 }

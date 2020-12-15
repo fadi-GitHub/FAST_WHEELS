@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewBag.Title = "Dealers";
+}
+@using WebApplication5.Models
+@{
+
+    var dealersList = ViewData["dealersList"] as List<Dealers>;
+}
+
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Car Dealers</title>
+    <link href="~/Content/aboutUs.css" rel="stylesheet" />
+
+
+    <script src="~/myScript.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h2 class="logo"><img src="~/images/logo.png" width="35%" />FASTwheels</h2>
+            <nav>
+                <ul>
+                    <li><a>@Html.ActionLink("Home", "HomePage", "Home")</a></li>
+                    <li> <a href="@Url.Action("getAllUsedCars","Home")">UsedCar</a></li>
+
+                    <li><a>@Html.ActionLink("Sign In", "Index", "Home")</a> </li>
+                    <li><a>@Html.ActionLink("Sign Up", "signUP", "Home")</a> </li>
+                    <li> <a href="@Url.Action("getAllDealers","Home")">Dealers</a></li>
+
+                    <li><a href="newCars.html" target="_self">NEW CARS</a> </li>
+
+                    <li> <a href="autoParts.html" target="_self">AUTO PARTS</a></li>
+                    <li><a href="aboutUs.html" target="_self">ABOUT</a></li>
+                    <li class="button"><a>@Html.ActionLink("Post an Ad", "postanAdd", "Home") </a> </li>
+
+                </ul>
+            </nav>
+        </header>
+        <div class="sub-header2">
+            <h1 align="center">Find Used Cars and New Cars Dealers</h1>
+            <p align="center">All verified and registered Dealers</p>
+        </div>
+
+        <div class="row">
+            <h1 align="center" class="title"> Car Dealers</h1>
+            @foreach (Dealers temp in dealersList)
+            {
+            <div class="column2">
+                <div class="card2" align="center">
+                    <img  src="~/dealerImages/@temp.ImageName" >
+                    <div class="container2">
+                        <h3>@temp.Name  </h3>
+                        <p class="title">@temp.City</p>
+                        <p> @temp.Address</p>
+                        <p>@temp.PhoneNo</p>
+                    </div>
+                </div>
+            </div>
+            }
+
+        </div>
+        <footer>
+            <!-- Footer Section -->
+            <section class="footer_banner" id="contact">
+                <h2 class="hidden">Footer Banner Section </h2>
+                <p class="footer01">FOR THE LATEST NEWS UPDATES, visit our site or contact us at FASTwheels@lhr.pk</p>
+            </section>
+            <!-- Copyrights Section -->
+            <div class="copyright">&copy;All rights reserved.&nbsp; </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>
+

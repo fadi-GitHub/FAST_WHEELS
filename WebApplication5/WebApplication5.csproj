@@ -124,12 +124,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\autopart.cs" />
+    <Compile Include="Models\Dealers.cs" />
     <Compile Include="Models\newCars.cs" />
     <Compile Include="Models\usedCars.cs" />
     <Compile Include="Models\CRUD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="autopartImages\prod1.jpg" />
     <Content Include="Content\aboutUs.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -137,6 +140,10 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\simpleGridTemplate.css" />
     <Content Include="Content\singlePageTemplate.css" />
+    <Content Include="dealerImages\honda.jpg" />
+    <Content Include="dealerImages\kia.png" />
+    <Content Include="dealerImages\suzuki.png" />
+    <Content Include="dealerImages\toyota.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -221,6 +228,8 @@
     <Content Include="Views\Home\HomePage.cshtml" />
     <Content Include="Views\Home\newCars.cshtml" />
     <Content Include="Views\Home\postanAdd.cshtml" />
+    <Content Include="Views\Home\Autostore.cshtml" />
+    <Content Include="Views\Home\Dealers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
