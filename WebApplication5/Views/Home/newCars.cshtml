@@ -2,6 +2,112 @@
 @{
     ViewBag.Title = "newCars";
 }
+@using WebApplication5.Models
+@{
 
-<h2>newCars</h2>
+    var newCarList = ViewData["newCarsList"] as List<newCars>;
+}
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>New Cars</title>
+    <link href="~/Content/simpleGridTemplate.css" rel="stylesheet" />
+    <link href="~/Content/singlePageTemplate.css" rel="stylesheet" />
+    <script src="~/myScript.js"></script>
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header>
+
+            <h2 class="logo"><img src="~/images/logo.png" alt="FASTwheels" width="50%" onClick="openHome()">FASTwheels</h2>
+            <nav>
+                <ul>
+                    <li><a>@Html.ActionLink("Home", "HomePage", "Home")</a></li>
+                    <li> <a href="@Url.Action("getAllUsedCars","Home")">UsedCar</a></li>
+                    <li> <a href="@Url.Action("getAllNewCars","Home")">NEW CARS</a></li>
+                    <li><a>@Html.ActionLink("Sign In", "Index", "Home")</a> </li>
+                    <li><a>@Html.ActionLink("Sign Up", "signUP", "Home")</a> </li>
+                    <li> <a href="@Url.Action("getAllDealers","Home")">Dealers</a></li>
+                    <li> <a href="@Url.Action("getAllAutoParts","Home")">Auto Parts</a></li>
+                    <li><a>@Html.ActionLink("About Us", "aboutUs", "Home")</a></li>
+                    <li class="button"><a>@Html.ActionLink("Post an Ad", "postanAdd", "Home") </a> </li>
+
+                </ul>
+            </nav>
+        </header>
+        <!-- Hero Section -->
+        <section class="intro">
+            <div class="column">
+                <h1 align="left">&nbsp; &nbsp; &nbsp;Find New  Cars in Pakistan</h1>
+                <p>&#9679; Find information about the latest cars in the market </p>
+            </div>
+        </section>
+
+        <form method="post" action="../Home/searchNewCars">
+            <div class="searchBar" align="center">
+                <label for="make"> Make &nbsp; </label>
+
+                <select name="make" id="company">
+                    <option value="select">Select </option>
+                    <option value="honda"> Honda  </option>
+                    <option value="toyata"> Toyatta  </option>
+                    <option value="mercedes"> Mercedes  </option>
+                    <option value="audi"> Audi  </option>
+                    <option value="suzuki"> Suzuki  </option>
+                </select>
+
+                <label for="model">&nbsp; &nbsp; Model &nbsp;</label>
+                <select name="model" id="year">
+                    <option value="select"> Select Model</option>
+                    <option value="2020"> 2020  </option>
+                </select>
+
+                <label for="range"> &nbsp; &nbsp; Range &nbsp;</label>
+                <select name="range" id="price">
+                    <option value="select">Price Range </option>
+                    <option value="upto 1,000,000"> upto 1,000,000 </option>
+                    <option value="1,000,001 to 2,000,000"> 1,000,001 to 2,000,000 </option>
+                    <option value="2,000,001 to 4,000,000"> 2,000,001 to 4,000,000 </option>
+                    <option value="4,000,001 to 8,000,000"> 4,000,001 to 8,000,000 </option>
+                    <option value=">8,000,000"> >8,000,000</option>
+                </select>
+
+                <br><br>
+                <button type="submit" class="button">Search</button>
+            </div>
+        </form>
+            <h2 align="center">Featured New Cars in Pakistan</h2>
+            <div class="gallery">
+                @foreach (newCars temp in newCarList)
+                 {
+
+                    <div class="thumbnail">
+
+                        <img src="~/newCarsImages/@temp.image" alt="@temp.CarMake+@temp.CarName" width="2000" class="cards" />
+                        <h4>@temp.CarMake @temp.CarName @temp.Model</h4>
+                        <p class="tag"><strong>pkr @temp.CarPrice </strong> </p>
+                        <p class="tag">@temp.Description</p>
+
+                    </div>
+
+                 }
+
+            </div>
+            <!-- Footer Section -->
+            <section class="footer_banner" id="contact">
+                <h2 class="hidden">Footer Banner Section </h2>
+                <p class="footer01">FOR THE LATEST NEWS UPDATES, visit our site or contact us at FASTwheels@lhr.pk</p>
+            </section>
+            <!-- Copyrights Section -->
+            <div class="copyright">&copy;All rights reserved.&nbsp; </div>
+
+    </div>
+</body>
+</html>
 

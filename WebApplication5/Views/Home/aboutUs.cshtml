@@ -1,0 +1,117 @@
+﻿
+@{
+    ViewBag.Title = "aboutUs";
+}
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About us</title>
+    <link href="~/Content/aboutUs.css" rel="stylesheet" />
+    <script src="~/myScript.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h2 class="logo"><img src="~/images/logo.png" alt="FASTwheels" width="50%" onClick="openHome()"/>FASTwheels</h2>
+            <nav>
+                <ul>
+                    <li><a>@Html.ActionLink("Home", "HomePage", "Home")</a></li>
+                    <li> <a href="@Url.Action("getAllUsedCars","Home")">UsedCar</a></li>
+                    <li> <a href="@Url.Action("getAllNewCars","Home")">NEW CARS</a></li>
+                    <li><a>@Html.ActionLink("Sign In", "Index", "Home")</a> </li>
+                    <li><a>@Html.ActionLink("Sign Up", "signUP", "Home")</a> </li>
+                    <li> <a href="@Url.Action("getAllDealers","Home")">Dealers</a></li>
+                    <li> <a href="@Url.Action("getAllAutoParts","Home")">Auto Parts</a></li>
+                    <li><a>@Html.ActionLink("About Us", "aboutUs", "Home")</a></li>
+                    <li class="button"><a>@Html.ActionLink("Post an Ad", "postanAdd", "Home") </a> </li>
+                    <li id="signIn"><a href="signIn.html" target="_self">|sign in </a></li>
+                    <li id="signUp"><a href="signUp.html" target="_self">| sign up|</a> </li>
+                </ul>
+            </nav>
+        </header>
+        <div class="about-section">
+            <h1>Who Are We?</h1>
+            <p>We provide you with the best new and used Cars details from all over the country</p>
+            <p>Through our Pakistan's Largest automobile network since 2003 !</p>
+        </div>
+
+        <h2 style="text-align:center">Our Team</h2>
+        <div class="row">
+            <div class="column2">
+                <div class="card2">
+                    
+                    <img src="~/images/member1.jpg" alt="Arslan" style="width:100%"/>
+                    <div class="container2">
+                        <h2>Arslan Tariq</h2>
+                        <p class="title">Computer Science Student</p>
+                        <p>Computer Science enthusiast | Web Development | App Development.</p>
+                        <p>l182138@lhr.nu.edu.pk</p>
+                        <button class="button2" onClick="contact()">Contact</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column2">
+                <div class="card2">
+                    
+
+                    <img src="~/images/member2.png"  alt="Kashi" style="width:100%"/>
+                    <div class="container2">
+                        <h2>Hamza Kashif</h2>
+                        <p class="title">Computer Science Student</p>
+                        <p>Computer Science enthusiast | Game Development | Android Development.</p>
+                        <p>l181087@lhr.nu.edu.pk</p>
+                        <button class="button2" onClick="contact()">Contact</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column2">
+                <div class="card2">
+                    
+                    <img src="~/images/member3.png" alt="Tahir" style="width:100%"/>
+                    <div class="container2">
+                        <h2>Hamza Tahir</h2>
+                        <p class="title">Computer Science Student</p>
+                        <p>Computer Science enthusiast | Web Development | App Development.</p>
+                        <p>l181056@lhr.nu.edu.pk</p>
+                        <button class="button2" onClick="contact()">Contact</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="column2">
+                <div class="card2">
+                   <img src="~/images/member4.png"  alt="Fahad" style="width:100%"/>
+                    <div class="container2">
+                        <h2>Fahad Ashfaq</h2>
+                        <p class="title">Computer Science Student</p>
+                        <p>Computer Science enthusiast | Web Development | Android Development.</p>
+                        <p>l181065@lhr.nu.edu.pk</p>
+                        <button class="button2" onClick="contact()">Contact</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <!-- Footer Section -->
+            <section class="footer_banner" id="contact">
+                <h2 class="hidden">Footer Banner Section </h2>
+                <p class="footer01">FOR THE LATEST NEWS UPDATES, visit our site or contact us at FASTwheels@lhr.pk</p>
+            </section>
+            <!-- Copyrights Section -->
+            <div class="copyright">&copy;All rights reserved.&nbsp; </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>
+

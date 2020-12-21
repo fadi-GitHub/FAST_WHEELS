@@ -44,6 +44,10 @@ namespace WebApplication5.Controllers
         {
             return View();
         }
+        public ActionResult aboutUs()
+        {
+            return View();
+        }
         public ActionResult Index()
         {
             return View();
@@ -198,6 +202,7 @@ namespace WebApplication5.Controllers
             TempData["usedCarsList"] = usedCarsList;
             return RedirectToAction("UsedCar");
         }
+        
 
         public ActionResult getAllUsedCars()
         {
@@ -206,11 +211,20 @@ namespace WebApplication5.Controllers
             return RedirectToAction("UsedCar");
         }
 
-         public ActionResult newCars()
-         {
+        public ActionResult newCars()
+        {
+            if (TempData["newCarsList"] != null)
+                ViewData["newCarsList"] = TempData["newCarsList"];
+
             return View();
-         }
-         
+        }
+        public ActionResult getAllNewCars()
+        {
+            List<newCars> newCarList = CRUD.getAllNewCar();
+            TempData["newCarsList"] = newCarList;
+            return RedirectToAction("newCars");
+        }
+
         public ActionResult searchNewCars(String make, int model, String range)
         {
             String minRange = "";
@@ -241,9 +255,9 @@ namespace WebApplication5.Controllers
                 maxRange = "200000000";
             }
             List<newCars> newCarsList = CRUD.searchNewCars(make, model, minRange, maxRange);
-            ViewData["newCarsList"] = newCarsList;
+            TempData["newCarsList"] = newCarsList;
 
-            return View("newCars");
+            return RedirectToAction("newCars");
         }
 
         public ActionResult postanAdd()
@@ -264,8 +278,6 @@ namespace WebApplication5.Controllers
                 ViewData["autopartList"] = TempData["autopartList"];
             return View();
         }
-
-
 
         public ActionResult searchAutoPart(String carMake,String carName,String itemName) 
         {

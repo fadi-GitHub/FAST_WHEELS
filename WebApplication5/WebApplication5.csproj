@@ -196,6 +196,14 @@
     <Content Include="images\v8.jpg" />
     <Content Include="images\vezel.jpg" />
     <Content Include="myScript.js" />
+    <Content Include="newCarsImages\Audi_A7.jpg" />
+    <Content Include="newCarsImages\city.jpg" />
+    <Content Include="newCarsImages\civic.jpg" />
+    <Content Include="newCarsImages\cultus.jpg" />
+    <Content Include="newCarsImages\img4.jpg" />
+    <Content Include="newCarsImages\img6.png" />
+    <Content Include="newCarsImages\v8.jpg" />
+    <Content Include="newCarsImages\vezel.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -230,6 +238,7 @@
     <Content Include="Views\Home\postanAdd.cshtml" />
     <Content Include="Views\Home\Autostore.cshtml" />
     <Content Include="Views\Home\Dealers.cshtml" />
+    <Content Include="Views\Home\aboutUs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

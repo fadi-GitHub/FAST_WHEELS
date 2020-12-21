@@ -238,6 +238,9 @@ namespace WebApplication5.Models
             return usedCarsList;
 
         }
+
+        
+
         public static List<usedCars> searchUsedCar(String make, int model, String Location, String minRange, String maxRange)
         {
             SqlConnection con = new SqlConnection(connectionString);
@@ -290,6 +293,49 @@ namespace WebApplication5.Models
 
         }
         ///////////////////////////////////
+        public static List<newCars> getAllNewCar()
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlCommand cmd;
+            List<newCars> newCarsList = new List<newCars>();
+            try
+            {
+                cmd = new SqlCommand("search_allnew_cars", con); //for running procedure
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+
+                while (rdr.Read())
+                {
+                    newCars carObj = new newCars();
+                    carObj.image = rdr["images"].ToString();
+                    carObj.CarMake = rdr["Make"].ToString();
+                    carObj.CarName = rdr["CarName"].ToString();
+                    carObj.Color = rdr["Color"].ToString();
+                    carObj.Model = Convert.ToInt32(rdr["Model"].ToString());
+                    carObj.Description = rdr["Description"].ToString();
+                    carObj.CarPrice = rdr["Price"].ToString();
+                    carObj.CarType = rdr["CarType"].ToString();
+                    carObj.Status = rdr["Status"].ToString();
+                    newCarsList.Add(carObj);
+                }
+
+            }
+
+            catch (SqlException ex)
+            {
+                Console.WriteLine("SQL Error" + ex.Message.ToString());
+                return null; //-1 will be interpreted as "error while connecting with the database."
+            }
+            finally
+            {
+                con.Close();
+            }
+            return newCarsList;
+
+        }
         public static List<newCars> searchNewCars(String make, int model, String minRange, String maxRange)
         {
             SqlConnection con = new SqlConnection(connectionString);
@@ -311,12 +357,13 @@ namespace WebApplication5.Models
                 while (rdr.Read())
                 {
                     newCars carObj = new newCars();
-                    carObj.CarMake = rdr["CarMake"].ToString();
+                    carObj.image = rdr["images"].ToString();
+                    carObj.CarMake = rdr["Make"].ToString();
                     carObj.CarName = rdr["CarName"].ToString();
                     carObj.Color = rdr["Color"].ToString();
                     carObj.Model = Convert.ToInt32(rdr["Model"].ToString());
                     carObj.Description = rdr["Description"].ToString();
-                    carObj.CarPrice = rdr["CarPrice"].ToString();
+                    carObj.CarPrice = rdr["Price"].ToString();
                     carObj.CarType = rdr["CarType"].ToString();
                     carObj.Status = rdr["Status"].ToString();
                     newCarsList.Add(carObj);
