@@ -21,13 +21,16 @@
             <h2 class="logo"><img src="~/images/logo.png" alt="FASTwheels" width="40%" onClick="openHome()">FASTwheels</h2>
             <nav>
                 <ul>
-                    <li><a href="home.html" target="_self">HOME</a></li>
-                    <li><a href="newCars.html" target="_self">NEW CARS</a> </li>
-                    <li><a href="usedCars.html" target="_self">USED CARS</a></li>
-                    <li> <a href="carDealers.html" target="_self">CAR DEALERS</a></li>
-                    <li> <a href="autoParts.html" target="_self">AUTO PARTS</a></li>
-                    <li><a href="aboutUs.html" target="_self">ABOUT</a></li>
-                    <li><button onClick="loginCondition()" class="button">Post an Ad </button> </li>
+                    <li><a>@Html.ActionLink("Home", "HomePage", "Home")</a></li>
+                    <li> <a href="@Url.Action("getAllUsedCars","Home")">UsedCar</a></li>
+                    <li> <a href="@Url.Action("getAllNewCars","Home")">NEW CARS</a></li>
+                    <li><a>@Html.ActionLink("Sign In", "Index", "Home")</a> </li>
+                    <li><a>@Html.ActionLink("Sign Up", "signUP", "Home")</a> </li>
+                    <li> <a href="@Url.Action("getAllDealers","Home")">Dealers</a></li>
+                    <li> <a href="@Url.Action("getAllAutoParts","Home")">Auto Parts</a></li>
+                    <li><a>@Html.ActionLink("About Us", "aboutUs", "Home")</a></li>
+                    <li class="button"><a>@Html.ActionLink("Post an Ad", "postanAdd", "Home") </a> </li>
+
                 </ul>
             </nav>
         </header>

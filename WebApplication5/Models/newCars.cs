@@ -7,6 +7,7 @@ namespace WebApplication5.Models
 {
     public class newCars
     {
+        public String image;
         public String CarName;
         public String CarMake;
         public String Color;
