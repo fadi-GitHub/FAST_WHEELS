@@ -10,27 +10,6 @@ using System.Linq;
 namespace WebApplication5.Controllers
 {
     
-    //class createPost{
-    //    public
-    //    String CarName;
-    //    String CarMake;
-    //    String Color;
-    //    String mobileno;
-    //    int Model;
-    //    String RegistrationNo;
-    //    String CarType;
-    //    String OwnerCNIC;
-    //    String Location;
-    //    String CarPrice;
-    //    String Description;
-
-    //    createPost(String CarName,String CarMake, String Color,String mobileno, int Model, String RegistrationNo, String CarType,String OwnerCNIC, String Location,String CarPrice, String Description)
-    //    {
-
-    //    }
-
-    //};
-
     public class HomeController : Controller
     {
         class User
@@ -52,6 +31,19 @@ namespace WebApplication5.Controllers
         {
             return View();
         }
+
+        public ActionResult profile()
+        {
+            ViewData["userPassword"] = User.Password;
+            return View();
+        }
+        public ActionResult updatePassword(String oldPassword,String newPassword)
+        {
+
+                
+            return RedirectToAction("profile");
+        }
+
         public ActionResult signIN(String email, String password)
         {
             CRUD.LoginQueryInfo UserInfo = CRUD.signIN(email, password);
@@ -150,13 +142,13 @@ namespace WebApplication5.Controllers
             return View();
         }
         
-        public ActionResult buyUsedCar(String UserEmail,String CarRegNo)
+        public ActionResult buyUsedCar(String CarRegNo)
         {
-            int result = CRUD.buyUsedCar("arslan111@gmail.comf", "GYZ-7512");
+            int result = CRUD.buyUsedCar(User.Email, CarRegNo);
             if (result == -1)
             {
                 String data = "Something went wrong while connecting with the database.";
-                return View("UsedCar", (object)data);
+                return View("Homepage", (object)data);
             }
             else if (result == 0)
             {
@@ -164,8 +156,7 @@ namespace WebApplication5.Controllers
                 String data = "Car Cannot be bought";
                 return View("index", (object)data);
             }
-            String data1 = "Car Bought";
-            return View("UsedCar",(object)data1);
+            return RedirectToAction("getAllUsedCars");
         }
 
         public ActionResult searchUsedCars(String make,String model,String Location,String range)

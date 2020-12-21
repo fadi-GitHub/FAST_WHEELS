@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewBag.Title = "profile";
+}
+@using WebApplication5.Models
+@{
+    bool flag=false;
+    var password = ViewData["userPassword"] as string;
+}
+
+
+<!doctype html>
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>Profile</title>
+    <link href="~/Content/singlePageTemplate.css" rel="stylesheet" />
+    <link href="~/Content/simpleGridTemplate.css" rel="stylesheet" />
+    <script src="~/myScript.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+
+            <h2 class="logo"><img src="~/images/logo.png" alt="FASTwheels" width="50%" onClick="openHome()">FASTwheels</h2>
+
+            <nav>
+                <ul>
+                    <li><a>@Html.ActionLink("Home", "HomePage", "Home")</a></li>
+                    <li> <a href="@Url.Action("getAllUsedCars","Home")">UsedCar</a></li>
+                    <li> <a href="@Url.Action("getAllNewCars","Home")">NEW CARS</a></li>
+                    <li><a>@Html.ActionLink("Sign In", "Index", "Home")</a> </li>
+                    <li><a>@Html.ActionLink("Sign Up", "signUP", "Home")</a> </li>
+                    <li> <a href="@Url.Action("getAllDealers","Home")">Dealers</a></li>
+                    <li> <a href="@Url.Action("getAllAutoParts","Home")">Auto Parts</a></li>
+                    <li><a>@Html.ActionLink("About Us", "aboutUs", "Home")</a></li>
+                    <li class="button"><a>@Html.ActionLink("Post an Ad", "postanAdd", "Home") </a> </li>
+
+                </ul>
+            </nav>
+        </header>
+
+        
+            <h1 align="center">Change Your Profile Settings</h1>
+            <div id="profile_pic"></div>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+            <div align="" id="profile_Form">
+                @*@using (Html.BeginForm("updatePassword",
+                  "Home",
+                  FormMethod.Post,
+                  new { onsubmit = "return save()" }))
+                {*@
+                    <form method="post" action="../Home/updatePassword" onsubmit = "return save(this,@password);">
+
+                        <h3>Update Password</h3>
+                        <label for="oldPassword">Current Password </label>
+                        <br>
+                        <input type="password" id="oldPassword" name="oldPassword" placeholder="Password" maxlength="15" size="30" />
+                        <br /><br />
+                        <label for="newPassword">New Password </label>
+                        <br>
+                        <input type="password" id="newPassword" name="newPassword" placeholder="6 to 15 characters" maxlength="15" size="30" />
+                        <br /><br />
+
+                        @*< id="uPass" value="@password"></>*@
+                        <input type="submit" id="update_button" value="Save Changes" />
+                        <br /><br />
+
+                    </form>
+                @*}*@
+            </div>
+                <section class="footer_banner" id="contact">
+                    <h2 class="hidden">Footer Banner Section </h2>
+                    <p class="footer01">FOR THE LATEST NEWS UPDATES, visit our site or contact us at FASTwheels@lhr.pk</p>
+                </section>
+                <!-- Copyrights Section -->
+                <div class="copyright">&copy;All rights reserved.&nbsp; </div>
+
+
+            
+</body>
+</html>
+

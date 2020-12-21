@@ -105,20 +105,23 @@
 
         <h2 align="center">Top used Cars in Pakistan</h2>
         <div class="gallery">
-            @foreach (usedCars temp in usedCarList)
-            {
+            <form method="post" action="../Home/buyAutoPart">
+                @foreach (usedCars temp in usedCarList)
+                 {
 
 
-                <div class="thumbnail">
-                    <img src="~/usedCarImages/@temp.imageName" alt="@temp.CarMake+@temp.CarName" width="2000" class="cards" />
-                    <h4>@temp.CarMake @temp.CarName @temp.Model</h4>
-                    <p class="tag"><strong>pkr @temp.CarPrice </strong> </p>
-                    <p class="tag">@temp.Description</p>
-                    <br>
-                    <button class="button3">Buy Now</button>
-                </div>
+                   <div class="thumbnail">
+                      <img src="~/usedCarImages/@temp.imageName" alt="@temp.CarMake+@temp.CarName" width="2000" class="cards" />
+                      <h4>@temp.CarMake @temp.CarName @temp.Model</h4>
+                      <p class="tag"><strong>pkr @temp.CarPrice </strong> </p>
+                      <p class="tag">@temp.Description</p>
+                      <br>
+                      <a href="@Url.Action("buyUsedCar", "Home",new{CarRegNo=@temp.RegistrationNo})">Buy Now</a>
+                    
+                   </div>
 
-            }
+                 }
+            </form>
         </div>
         <!-- Footer Section -->
         <section class="footer_banner" id="contact">

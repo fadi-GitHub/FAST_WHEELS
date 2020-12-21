@@ -55,3 +55,33 @@ function pictureURL() {
 	var img = document.getElementById("upload");
 
 }
+function checkPswd() {
+    var newPass = document.getElementById("newPswd");
+    var confirm = document.getElementById("cnfrm");
+
+    if (newPass.value.length < 6 || newPass.value.length > 15) {
+        alert("Enter 6 to 15 characters Password!");
+        return false;
+    }
+
+    if (newPass.value != confirm.value) {
+        alert("Password not matched!");
+    }
+
+}
+
+function save(form,userPassword) {
+   
+    var uPass = userPassword.toString();
+    var oldPassword = form.oldPassword.value;
+    if (uPass != oldPassword) {
+      
+        alert("Unable to save Changes");
+        return false;
+    }
+    else
+    {
+        alert("Password Changed");
+        return true;
+    }
+}

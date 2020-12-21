@@ -239,6 +239,7 @@
     <Content Include="Views\Home\Autostore.cshtml" />
     <Content Include="Views\Home\Dealers.cshtml" />
     <Content Include="Views\Home\aboutUs.cshtml" />
+    <Content Include="Views\Home\profile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
