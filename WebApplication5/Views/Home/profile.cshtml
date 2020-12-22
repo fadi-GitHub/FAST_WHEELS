@@ -6,6 +6,10 @@
 @{
     bool flag=false;
     var password = ViewData["userPassword"] as string;
+    var Userdetail = ViewData["userDetails"] as Userdetails;
+    var boughtList = ViewData["boughtList"] as List<carRecords>;
+    var soldList = ViewData["soldList"] as List<carRecords>;
+
 }
 
 
@@ -40,45 +44,110 @@
             </nav>
         </header>
 
-        
-            <h1 align="center">Change Your Profile Settings</h1>
-            <div id="profile_pic"></div>
-            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-
             <div align="" id="profile_Form">
-                @*@using (Html.BeginForm("updatePassword",
-                  "Home",
-                  FormMethod.Post,
-                  new { onsubmit = "return save()" }))
-                {*@
-                    <form method="post" action="../Home/updatePassword" onsubmit = "return save(this,@password);">
+                <form action="#" method="post" name="profile" id="profile_container">
+                    <h1 align="center">Profile Info</h1>
+                    <div id="profile_pic"></div>
 
-                        <h3>Update Password</h3>
-                        <label for="oldPassword">Current Password </label>
-                        <br>
-                        <input type="password" id="oldPassword" name="oldPassword" placeholder="Password" maxlength="15" size="30" />
-                        <br /><br />
-                        <label for="newPassword">New Password </label>
-                        <br>
-                        <input type="password" id="newPassword" name="newPassword" placeholder="6 to 15 characters" maxlength="15" size="30" />
-                        <br /><br />
+                    <div align="" id="profile_Form">
+                        <strong>
+                            <label for="fname">@Userdetail.firstName </label>
+                            <br /><br />
+                            <label for="lname">@Userdetail.lastName </label>
+                            <br /><br />
+                            <label for="email">@Userdetail.email </label>
+                            <br /><br />
+                            <label for="cnic">@Userdetail.cnic </label>
+                            <br /><br />
+                        </strong>
+                    </div>
+                </form>
+                <form method="post" action="../Home/updatePassword" onsubmit="return save(this,@password);">
 
-                        @*< id="uPass" value="@password"></>*@
-                        <input type="submit" id="update_button" value="Save Changes" />
-                        <br /><br />
+                    <h3>Update Password</h3>
+                    <label for="oldPassword">Current Password </label>
+                    <br>
+                    <input type="password" id="oldPassword" name="oldPassword" placeholder="Password" maxlength="15" size="30" />
+                    <br /><br />
+                    <label for="newPassword">New Password </label>
+                    <br>
+                    <input type="password" id="newPassword" name="newPassword" placeholder="6 to 15 characters" maxlength="15" size="30" />
+                    <br /><br />
 
-                    </form>
-                @*}*@
+                    @*< id="uPass" value="@password"></>*@
+                    <input type="submit" id="update_button" value="Save Changes" />
+                    <br /><br />
+
+                </form>
+                <h3>Cars Bought</h3>
+                <table id="userRecord" width="550px" style="overflow-x: auto">
+                    <tr>
+                        <th colspan="7">Features</th>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td>Make</td>
+                        <td>Color</td>
+                        <td>Model</td>
+                        <td>Reg Number</td>
+                        <td>Type</td>
+                        <td>Price</td>
+                    </tr>
+                    @foreach (carRecords temp in boughtList)
+                    {
+                     <tr>
+                        <td>@temp.carName</td>
+                        <td>@temp.carMake</td>
+                        <td>@temp.carColor</td>
+                        <td>@temp.carModel</td>
+                        <td>@temp.carRegNo</td>
+                        <td>@temp.carType</td>
+                        <td>@temp.carPrice</td>
+                     </tr>
+                    }
+                </table>
+
+                <h3>Cars Sold</h3>
+                <table id="userRecord" width="550px" style="overflow-x: auto">
+                    <tr>
+                        <th colspan="7" align="right">Features</th>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td>Make</td>
+                        <td>Color</td>
+                        <td>Model</td>
+                        <td>Reg Number</td>
+                        <td>Type</td>
+                        <td>Price</td>
+                    </tr>
+                    @foreach (carRecords temp in soldList)
+                    {
+                        <tr>
+                            <td>@temp.carName</td>
+                            <td>@temp.carMake</td>
+                            <td>@temp.carColor</td>
+                            <td>@temp.carModel</td>
+                            <td>@temp.carRegNo</td>
+                            <td>@temp.carType</td>
+                            <td>@temp.carPrice</td>
+                        </tr>
+                    }
+
+
+                </table>
+
+
             </div>
-                <section class="footer_banner" id="contact">
-                    <h2 class="hidden">Footer Banner Section </h2>
-                    <p class="footer01">FOR THE LATEST NEWS UPDATES, visit our site or contact us at FASTwheels@lhr.pk</p>
-                </section>
-                <!-- Copyrights Section -->
-                <div class="copyright">&copy;All rights reserved.&nbsp; </div>
+                    <section class="footer_banner" id="contact">
+                        <h2 class="hidden">Footer Banner Section </h2>
+                        <p class="footer01">FOR THE LATEST NEWS UPDATES, visit our site or contact us at FASTwheels@lhr.pk</p>
+                    </section>
+                    <!-- Copyrights Section -->
+                    <div class="copyright">&copy;All rights reserved.&nbsp; </div>
 
 
-            
+
 </body>
 </html>
 
