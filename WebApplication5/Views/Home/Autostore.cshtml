@@ -87,8 +87,10 @@
                  </form>
                 <div class="row">
                     <form method="post" action="../Home/buyAutoPart">
-                        @foreach (autopart temp in autopartList)
+                        @if (autopartList!=null)
                         {
+                            foreach (autopart temp in autopartList)
+                            {
                             <div class="column3">
                                 <div class="card2" align="center">
                                     <img src="~/autopartImages/@temp.imageName" style="width:60%">
@@ -97,13 +99,18 @@
                                         <h3>@temp.carName @temp.itemName</h3>
                                         <p class="title">pkr @temp.price</p>
                                         <p> Free Shipping</p>
-                                        <a href="@Url.Action("buyAutoPart", "Home",new{carMake=@temp.carMake,carName=@temp.carName,itemName=@temp.itemName,Color=@temp.Color })">Buy</a>
+                                        <a href="@Url.Action("buyAutoPart", "Home", new { carMake = @temp.carMake, carName = @temp.carName, itemName = @temp.itemName, Color = @temp.Color })">Buy</a>
                                         
                                     </div>
 
                                 </div>
                             </div>
-                         }
+                            }
+                        }
+                        else 
+                        {
+                            <h4>No Auto Part Found</h4>
+                        }
                     </form>
 
 
