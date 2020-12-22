@@ -35,14 +35,12 @@ namespace WebApplication5.Controllers
         public ActionResult profile()
         {
             ViewData["userPassword"] = User.Password;
+            ViewData["boughtList"] = TempData["boughtList"];
+            ViewData["soldList"] = TempData["soldList"];
+            ViewData["userDetails"] = TempData["userDetails"];
             return View();
         }
-        public ActionResult updatePassword(String oldPassword,String newPassword)
-        {
-
-                
-            return RedirectToAction("profile");
-        }
+       
 
         public ActionResult signIN(String email, String password)
         {
@@ -309,6 +307,30 @@ namespace WebApplication5.Controllers
             List<Dealers> dealersList = CRUD.getAllDealers();
             TempData["dealersList"] = dealersList;
             return RedirectToAction("Dealers");
+        }
+
+        //Profile //
+        public ActionResult updatePassword(String oldPassword, String newPassword)
+        {
+
+            int result = CRUD.updatePassword(oldPassword, newPassword, User.CNIC);
+            Userdetails obj = CRUD.getUserDetails(User.CNIC);
+            List<carRecords> BoughtList = CRUD.getBoughtdetails(User.CNIC);
+            List<carRecords> SoldList = CRUD.getsolddetails(User.CNIC);
+            TempData["boughtList"] = BoughtList;
+            TempData["soldList"] = SoldList;
+            TempData["userDetails"] = obj;
+            return RedirectToAction("profile");
+        }
+        public ActionResult getUserdetails()
+        {
+            Userdetails obj = CRUD.getUserDetails(User.CNIC);
+            List<carRecords> BoughtList = CRUD.getBoughtdetails(User.CNIC);
+            List<carRecords> SoldList = CRUD.getsolddetails(User.CNIC);
+            TempData["boughtList"] = BoughtList;
+            TempData["soldList"] = SoldList;
+            TempData["userDetails"] = obj;
+            return RedirectToAction("profile");
         }
     }
 }

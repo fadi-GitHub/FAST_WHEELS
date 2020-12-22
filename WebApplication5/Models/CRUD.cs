@@ -550,9 +550,163 @@ namespace WebApplication5.Models
             return result;
         }
 
-        ////// Dealer Methods /////////
-        
-    }
+        ////// Profile functions /////////
+        public static int updatePassword(String oldpassword, String newpassword,String cnic) {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlCommand cmd;
+            int result;
+            try
+            {
+                cmd = new SqlCommand("update_password", con); //for running procedure
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.Add("@cnic", SqlDbType.VarChar, 15).Value = cnic;
+                cmd.Parameters.Add("@currentpassword", SqlDbType.VarChar, 15).Value = oldpassword;
+                cmd.Parameters.Add("@newpassword", SqlDbType.VarChar, 15).Value = newpassword;
+                cmd.Parameters.Add("@Flag", SqlDbType.Int).Direction = ParameterDirection.Output;
 
+                cmd.ExecuteNonQuery();
+
+                result = Convert.ToInt32(cmd.Parameters["@Flag"].Value);
+            }
+
+            catch (SqlException ex)
+            {
+                Console.WriteLine("SQL Error" + ex.Message.ToString());
+                result = -1; //-1 will be interpreted as "error while connecting with the database."
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return result;
+        }
+
+        public static Userdetails getUserDetails(String cnic)
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlCommand cmd;
+
+            Userdetails obj =new Userdetails();
+
+            try
+            {
+                cmd = new SqlCommand("getall_userdetails", con); //for running procedure
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.Add("@cnic", SqlDbType.VarChar, 15).Value = cnic;
+
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+
+                while (rdr.Read())
+                {
+                    obj.firstName = rdr["FirstName"].ToString();
+                    obj.lastName = rdr["LastName"].ToString();
+                    obj.cnic = rdr["CNIC"].ToString();
+                    obj.email = rdr["Email"].ToString();
+                }
+            }
+
+            catch (SqlException ex)
+            {
+                Console.WriteLine("SQL Error" + ex.Message.ToString());
+                return null; //-1 will be interpreted as "error while connecting with the database."
+            }
+            finally
+            {
+                con.Close();
+            }
+            return obj;
+        }
+
+        public static List<carRecords> getBoughtdetails(String cnic)
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlCommand cmd;
+
+            List<carRecords> boughtlist = new List<carRecords>();
+
+            try
+            {
+                cmd = new SqlCommand("getall_boughtdetails", con); //for running procedure
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.Add("@cnic", SqlDbType.VarChar, 15).Value = cnic;
+
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+
+                while (rdr.Read())
+                {
+                    carRecords obj = new carRecords();
+                    obj.carRegNo = rdr["RegNo"].ToString();
+                    obj.carMake = rdr["CarMake"].ToString();
+                    obj.carName = rdr["CarName"].ToString();
+                    obj.carModel = rdr["Model"].ToString();
+                    obj.carType= rdr["CarType"].ToString();
+                    obj.carColor= rdr["Color"].ToString();
+                    obj.carPrice= rdr["CarPrice"].ToString();
+                    boughtlist.Add(obj);
+                }
+            }
+
+            catch (SqlException ex)
+            {
+                Console.WriteLine("SQL Error" + ex.Message.ToString());
+                return null; //-1 will be interpreted as "error while connecting with the database."
+            }
+            finally
+            {
+                con.Close();
+            }
+            return boughtlist;
+        }
+
+        public static List<carRecords> getsolddetails(String cnic)
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlCommand cmd;
+
+            List<carRecords> soldlist = new List<carRecords>();
+
+            try
+            {
+                cmd = new SqlCommand("getall_solddetails", con); //for running procedure
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.Add("@cnic", SqlDbType.VarChar, 15).Value = cnic;
+
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+
+                while (rdr.Read())
+                {
+                    carRecords obj = new carRecords();
+                    obj.carRegNo = rdr["RegNo"].ToString();
+                    obj.carMake = rdr["CarMake"].ToString();
+                    obj.carName = rdr["CarName"].ToString();
+                    obj.carModel = rdr["Model"].ToString();
+                    obj.carType = rdr["CarType"].ToString();
+                    obj.carColor = rdr["Color"].ToString();
+                    obj.carPrice = rdr["CarPrice"].ToString();
+                    soldlist.Add(obj);
+                }
+            }
+
+            catch (SqlException ex)
+            {
+                Console.WriteLine("SQL Error" + ex.Message.ToString());
+                return null; //-1 will be interpreted as "error while connecting with the database."
+            }
+            finally
+            {
+                con.Close();
+            }
+            return soldlist;
+        }
+    }
+    
 }
 //hello just checking 
