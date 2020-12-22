@@ -125,10 +125,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\autopart.cs" />
+    <Compile Include="Models\carRecords.cs" />
     <Compile Include="Models\Dealers.cs" />
     <Compile Include="Models\newCars.cs" />
     <Compile Include="Models\usedCars.cs" />
     <Compile Include="Models\CRUD.cs" />
+    <Compile Include="Models\Userdetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
