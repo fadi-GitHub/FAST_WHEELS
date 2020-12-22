@@ -106,8 +106,10 @@
         <h2 align="center">Top used Cars in Pakistan</h2>
         <div class="gallery">
             <form method="post" action="../Home/buyAutoPart">
-                @foreach (usedCars temp in usedCarList)
-                 {
+                @if (usedCarList != null)
+                {
+                  foreach (usedCars temp in usedCarList)
+                {
 
 
                    <div class="thumbnail">
@@ -116,11 +118,16 @@
                       <p class="tag"><strong>pkr @temp.CarPrice </strong> </p>
                       <p class="tag">@temp.Description</p>
                       <br>
-                      <a href="@Url.Action("buyUsedCar", "Home",new{CarRegNo=@temp.RegistrationNo})">Buy Now</a>
+                      <a href="@Url.Action("buyUsedCar", "Home", new { CarRegNo = @temp.RegistrationNo })">Buy Now</a>
                     
                    </div>
 
-                 }
+                  }
+                }
+                else
+                {
+                    <h5> Nothing Found</h5>
+                }
             </form>
         </div>
         <!-- Footer Section -->
