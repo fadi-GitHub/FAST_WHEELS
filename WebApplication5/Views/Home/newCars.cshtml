@@ -84,8 +84,10 @@
         </form>
             <h2 align="center">Featured New Cars in Pakistan</h2>
             <div class="gallery">
-                @foreach (newCars temp in newCarList)
-                 {
+                @if (newCarList != null)
+                {
+                    foreach (newCars temp in newCarList)
+                    {
 
                     <div class="thumbnail">
 
@@ -96,7 +98,12 @@
 
                     </div>
 
-                 }
+                    }
+                }
+                else
+                {
+                    <h4>No card Found</h4>
+                }
 
             </div>
             <!-- Footer Section -->

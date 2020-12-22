@@ -85,3 +85,13 @@ function save(form,userPassword) {
         return true;
     }
 }
+
+function validationUC() {
+    var ddl = document.getElementById("dummy_form");
+    var selectedValue = ddl.options[ddl.selectedIndex].value;
+    if (selectedValue == "select") {
+        alert("Please select all options");
+        return false;
+    }
+    return true;
+}

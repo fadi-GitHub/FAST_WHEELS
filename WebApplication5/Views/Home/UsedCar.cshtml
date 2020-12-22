@@ -53,7 +53,7 @@
             </div>
         </section>
 
-        <form method="post" action="../Home/searchUsedCars">
+        <form method="post" action="../Home/searchUsedCars" onsubmit="return validationUC()">
             <div class="searchBar" align="center">
 
                 <label for="make"> Make &nbsp; </label>
@@ -99,7 +99,7 @@
 
                 <br><br>
                 @*<li> <a href="@Url.Action("searchUsedCars","Home")">Search</a></li>*@
-                <button type="submit" class="button"> Search </button>
+                <button type="submit" class="button" > Search </button>
             </div>
         </form>
 
@@ -109,7 +109,7 @@
                 @if (usedCarList != null)
                 {
                   foreach (usedCars temp in usedCarList)
-                {
+                 {
 
 
                    <div class="thumbnail">

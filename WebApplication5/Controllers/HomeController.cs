@@ -165,6 +165,14 @@ namespace WebApplication5.Controllers
 
         public ActionResult searchUsedCars(String make,String model,String Location,String range)
         {
+            if(model==null || make==null || Location==null || range == null)
+            {
+                List<usedCars> usedCarsList1 = new List<usedCars>();
+                usedCarsList1 = null;
+                TempData["usedCarsList"] = usedCarsList1;
+                return RedirectToAction("UsedCar");
+
+            }
             int Model = Convert.ToInt32(model);
             String minRange = "";
             String maxRange = "";
