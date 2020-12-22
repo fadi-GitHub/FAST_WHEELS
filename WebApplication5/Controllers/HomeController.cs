@@ -90,6 +90,7 @@ namespace WebApplication5.Controllers
 
         public ActionResult createPost()
         {
+            
             return View();
         }
        public struct cla1
@@ -142,6 +143,11 @@ namespace WebApplication5.Controllers
         
         public ActionResult buyUsedCar(String CarRegNo)
         {
+            if (User.Email == "")
+            {
+                String data = "Please Login first";
+                return View("index", (object)data);
+            }
             int result = CRUD.buyUsedCar(User.Email, CarRegNo);
             if (result == -1)
             {
@@ -251,6 +257,11 @@ namespace WebApplication5.Controllers
 
         public ActionResult postanAdd()
         {
+            if (User.Email == "")
+            {
+                String data = "Please Login first";
+                return View("index", (object)data);
+            }
             return View();
         }
 
@@ -263,6 +274,7 @@ namespace WebApplication5.Controllers
 
         public ActionResult Autostore()
         {
+            
             if (TempData["autopartList"] != null)
                 ViewData["autopartList"] = TempData["autopartList"];
             return View();
@@ -284,6 +296,11 @@ namespace WebApplication5.Controllers
         }
         public ActionResult buyAutoPart(String carMake, String carName, String itemName, String Color)
         {
+            if (User.Email == "")
+            {
+                String data = "Please Login first";
+                return View("index", (object)data);
+            }
             int result = CRUD.buyAutoPart(carMake, carName, itemName, Color);
             if (result == -1)
             {
@@ -296,8 +313,8 @@ namespace WebApplication5.Controllers
                 String data = "Auto Part Cannot be bought";
                 return View("Autostore", (object)data);
             }
-            String data1 = "AutoPart Bought";
-            return View("Autostore", (object)data1);
+            
+            return RedirectToAction("getAllAutoParts");
         }
 
 
