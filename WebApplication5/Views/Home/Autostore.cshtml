@@ -46,11 +46,11 @@
 
                 <h2 style="text-align:center">Find Latest Accessories and parts for Your Car</h2>
 
-                <form method="post" action="../Home/searchAutoPart">
+                <form method="post" action="../Home/searchAutoPart" onsubmit="return validationAS();">
                     <div class="searchBar" align="center">
 
                         <label for="carMake"> &nbsp; Car Make  &nbsp;</label>
-                        <select name="carMake" id="dummy_form">
+                        <select name="carMake" id="Make" class="dummy_form">
                             <option value="select">Select Make </option>
                             <option value="Honda "> Honda   </option>
                             <option value="Suzuki"> Suzuki  </option>
@@ -60,8 +60,8 @@
                         </select>
 
                         <label for="name">&nbsp; &nbsp; Car Name &nbsp;</label>
-                        <select name="carName" id="dummy_form">
-                            <option value="Select"> Select Car </option>
+                        <select name="carName" id="Name" class="dummy_form">
+                            <option value="select"> Select Car </option>
                             <option value="Civic"> Civic  </option>
                             <option value="City"> City  </option>
                             <option value="Cultus"> Cultus  </option>
@@ -71,7 +71,7 @@
                         </select>
 
                         <label for="part"> &nbsp; &nbsp; Part Name &nbsp;</label>
-                        <select name="itemName" id="dummy_form">
+                        <select name="itemName" id="itemName" class="dummy_form">
                             <option value="select">Select Part</option>
                             <option value="Bumper"> Front Bumper </option>
                             <option value="Bumper"> Back Bumper</option>
