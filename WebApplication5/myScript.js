@@ -87,9 +87,15 @@ function save(form,userPassword) {
 }
 
 function validationUC() {
-    var ddl = document.getElementById("dummy_form");
-    var selectedValue = ddl.options[ddl.selectedIndex].value;
-    if (selectedValue == "select") {
+    var dd1 = document.getElementById("Make").value;
+    var dd2 = document.getElementById("Model").value;
+    var dd3 = document.getElementById("Price").value;
+    var dd4 = document.getElementById("City").value;
+    //var selectedValue1 = dd1.options[ddl.selectedIndex].value;
+    //var selectedValue2= dd2.options[dd2.selectedIndex].value;
+    //var selectedValue3 = dd3.options[dd3.selectedIndex].value;
+    //var selectedValue4 = dd4.options[dd4.selectedIndex].value;
+    if (dd1 == "select" || dd2 == "select" || dd3 == "select" ||dd4 == "select") {
         alert("Please select all options");
         return false;
     }

@@ -53,12 +53,12 @@
             </div>
         </section>
 
-        <form method="post" action="../Home/searchUsedCars" onsubmit="return validationUC()">
+        <form method="post" action="../Home/searchUsedCars" onsubmit="return validationUC();">
             <div class="searchBar" align="center">
 
                 <label for="make"> Make &nbsp; </label>
 
-                <select name="make" id="dummy_form">
+                <select name="make" id="Make" class="dummy_form">
                     <option value="select">Select </option>
                     <option value="honda"> Honda  </option>
                     <option value="toyatta"> Toyatta  </option>
@@ -68,7 +68,7 @@
                 </select>
 
                 <label for="model">&nbsp; &nbsp; Model &nbsp;</label>
-                <select name="model" id="dummy_form">
+                <select name="model" id="Model" class="dummy_form">
                     <option value="select"> Select Model</option>
                     <option value="2016"> 2016  </option>
                     <option value="2017"> 2017  </option>
@@ -78,7 +78,7 @@
                 </select>
 
                 <label for="location">&nbsp; &nbsp; Location &nbsp;</label>
-                <select name="location" id="dummy_form">
+                <select name="location" id="City" class="dummy_form">
                     <option value="select">Choose City </option>
                     <option value="Lahore"> Lahore  </option>
                     <option value="Karachi"> Karachi  </option>
@@ -88,7 +88,7 @@
                 </select>
 
                 <label for="range"> &nbsp; &nbsp; Range &nbsp;</label>
-                <select name="range" id="dummy_form">
+                <select name="range" id="Price" class="dummy_form">
                     <option value="select">Price Range </option>
                     <option value="upto 1,000,000"> upto 1,000,000 </option>
                     <option value="1,000,001 to 2,000,000"> 1,000,001 to 2,000,000 </option>
