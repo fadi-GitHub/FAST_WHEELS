@@ -101,3 +101,24 @@ function validationUC() {
     }
     return true;
 }
+
+function validationNC() {
+    var dd1 = document.getElementById("Make").value;
+    var dd2 = document.getElementById("Model").value;
+    var dd3 = document.getElementById("Price").value;
+    if (dd1 == "select" || dd2 == "select" || dd3 == "select") {
+        alert("Please select all options");
+        return false;
+    }
+    return true;
+}
+function validationAS() {
+    var dd1 = document.getElementById("Make").value;
+    var dd2 = document.getElementById("Name").value;
+    var dd3 = document.getElementById("itemName").value;
+    if (dd1 == "select" || dd2 == "select" || dd3 == "select") {
+        alert("Please select all options");
+        return false;
+    }
+    return true;
+}
