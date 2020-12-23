@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>sign up</title>
     <link href="~/Content/singlePageTemplate.css" rel="stylesheet" />
-    <script src="myScript.js" runat="server" type="text/javascript"></script>
+    <script src="~/myScript.js"></script>
 </head>
 
 <body>
@@ -36,33 +36,35 @@
         </header>
 
         <div align="center">
-            <form id="signUp_Form" method="post" action="../Home/sup">
-                <h1>Sign Up</h1>
+            
+                <form id="signUp_Form" method="post" action="../Home/sup" onsubmit="return signUpValidation();" >
+                    <h1>Sign Up</h1>
 
-                <label for="firstname"><strong>First Name &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</strong></label>
-                <input id="firstname" class="c1" type="text" placeholder="Enter Your First Name" name="firstname" required>
-                <br><br>
+                    <label for="firstname"><strong>First Name &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</strong></label>
+                    <input id="firstname" class="c1" type="text" placeholder="Enter Your First Name" name="firstname" required>
+                    <br><br>
 
-                <label for="lastname"><strong>Last Name &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</strong></label>
-                <input id="lastname" class="c1" type="text" placeholder="Enter Your Last Name" name="lastname" required>
-                <br><br>
+                    <label for="lastname"><strong>Last Name &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</strong></label>
+                    <input id="lastname" class="c1" type="text" placeholder="Enter Your Last Name" name="lastname" required>
+                    <br><br>
 
-                <label for="email"><strong> Username/Email &nbsp; &nbsp; &nbsp; </strong></label>
-                <input id="email" class="c1" type="email" placeholder="Enter Email" name="email" required>
-                <br><br>
-                <label for="cnic"><strong>cnic &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</strong></label>
-                <input id="cnic" class="c1" type="text" placeholder="Enter Your CNIC number" name="cnic" required>
-                <br><br>
+                    <label for="email"><strong> Username/Email &nbsp; &nbsp; &nbsp; </strong></label>
+                    <input id="email" class="c1" type="email" placeholder="Enter Email" name="email" required>
+                    <br><br>
+                    <label for="cnic"><strong>cnic &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;</strong></label>
+                    <input id="cnic" class="c1" type="text" placeholder="Enter Your CNIC number" name="cnic" required>
+                    <br><br>
 
 
-                <label for="password"><strong>Type Password &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</strong></label>
-                <input id="password" class="c1" type="password" placeholder="Enter Password" name="password" required>
-                <br><br>
+                    <label for="password"><strong>Type Password &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</strong></label>
+                    <input id="password" class="c1" type="password" placeholder="Enter Password" name="password" required>
+                    <br><br>
 
-         
-                <button onclick="redirect()" type="submit" class="button">sign up</button>
-            </form>
-        </div>
+
+                    <button @*onclick="redirect()"*@ type="submit" class="button">sign up</button>
+                </form>
+           
+            </div>
 
         <div class="footer_banner" id="contact">
 
