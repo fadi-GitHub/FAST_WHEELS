@@ -48,8 +48,10 @@
 
         <div class="row">
             <h1 align="center" class="title"> Car Dealers</h1>
-            @foreach (Dealers temp in dealersList)
+            @if (dealersList != null)
             {
+                foreach (Dealers temp in dealersList)
+                {
             <div class="column2">
                 <div class="card2" align="center">
                     <img  src="~/dealerImages/@temp.ImageName" >
@@ -61,6 +63,11 @@
                     </div>
                 </div>
             </div>
+                }
+            }
+            else 
+            {
+                <h4>No dealer Found</h4>
             }
 
         </div>
