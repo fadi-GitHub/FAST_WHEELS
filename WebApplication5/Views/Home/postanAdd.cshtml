@@ -38,82 +38,84 @@
             @using (Html.BeginForm("creatingPost",
                              "Home",
                              FormMethod.Post,
-                             new {  enctype = "multipart/form-data" }))
+                             new { onsubmit = "return postAddValidation()", enctype = "multipart/form-data" }))
             {
-            <form id="sellCar_Form" method="post" action="../Home/creatingPost">
-
-                <h1>Post Your Ad</h1>
-                <br><br>
-                <label for="carName"> Car Name &nbsp;</label>
-                <input type="text" id="CarName" placeholder="Civic,Corolla etc" name="carName" required>
-                &nbsp; &nbsp;&nbsp;
-                @*<label for="OwnerCNIC"> Owner CNIC &nbsp;</label>
+            <form  method="post" action="../Home/creatingPost" >
+                <div>
+                    <h1>Post Your Ad</h1>
+                    <br><br>
+                    <label for="carName"> Car Name &nbsp;</label>
+                    <input type="text" id="CarName" placeholder="Civic,Corolla etc" name="carName" required>
+                    &nbsp; &nbsp;&nbsp;
+                    @*<label for="OwnerCNIC"> Owner CNIC &nbsp;</label>
         <input type="text" id="OwnerCNIC" placeholder="e.g.XXXXX-XXXXXXX-X " name="OwnerCNIC" required>
         <br><br>*@
 
-                @*<label for="carMake"> Car Make&nbsp; &nbsp;</label>
+                    @*<label for="carMake"> Car Make&nbsp; &nbsp;</label>
         <input type="text" id="CarMake" placeholder="Honda etc" name="carMake" required>*@
-                <label for="carMake"> Make &nbsp; </label>
-                <select name="carMake" id="CarMake" class="dummy_form">
-                    <option value="select">Select </option>
-                    <option value="honda"> Honda  </option>
-                    <option value="toyatta"> Toyatta  </option>
-                    <option value="mercedes"> Mercedes  </option>
-                    <option value="audi"> Audi  </option>
-                    <option value="suzuki"> Suzuki  </option>
-                </select>
+                    <label for="carMake"> Make &nbsp; </label>
+                    <select name="carMake" id="CarMake" class="dummy_form">
+                        <option value="select">Select </option>
+                        <option value="honda"> Honda  </option>
+                        <option value="toyatta"> Toyatta  </option>
+                        <option value="mercedes"> Mercedes  </option>
+                        <option value="audi"> Audi  </option>
+                        <option value="suzuki"> Suzuki  </option>
+                    </select>
 
 
-                @*<label for="Model"> &nbsp; Model&nbsp; &nbsp; &nbsp; &nbsp;</label>
+                    @*<label for="Model"> &nbsp; Model&nbsp; &nbsp; &nbsp; &nbsp;</label>
         <input type="number" id="Model" placeholder="Year e.g.(2018)" name="Model" required>*@
-                <label for="Model">&nbsp; &nbsp; Model &nbsp;</label>
-                <select name="Model" id="Model" class="dummy_form">
-                    <option value="select"> Select Model</option>
-                    <option value="2016"> 2016  </option>
-                    <option value="2017"> 2017  </option>
-                    <option value="2018"> 2018  </option>
-                    <option value="2019"> 2019  </option>
-                    <option value="2020"> 2020  </option>
-                </select>
+                    <label for="Model">&nbsp; &nbsp; Model &nbsp;</label>
+                    <select name="Model" id="Model" class="dummy_form">
+                        <option value="select"> Select Model</option>
+                        <option value="2016"> 2016  </option>
+                        <option value="2017"> 2017  </option>
+                        <option value="2018"> 2018  </option>
+                        <option value="2019"> 2019  </option>
+                        <option value="2020"> 2020  </option>
+                    </select>
 
-                <br><br>
-                <label for="mobileno"> &nbsp; &nbsp; &nbsp; Mobile&nbsp;No&nbsp; &nbsp; &nbsp;</label>
-                <input type="number" id="mobileno" placeholder="Mobile Number" name="mobileno" required>
+                    <br><br>
+                    <label for="mobileno"> &nbsp; &nbsp; &nbsp; Mobile&nbsp;No&nbsp; &nbsp; &nbsp;</label>
+                    <input type="number" id="mobileno" placeholder="Mobile Number" name="mobileno" required>
 
-                @*<label for="location"> &nbsp; &nbsp; &nbsp; &nbsp; Location&nbsp; &nbsp; &nbsp;</label>
+                    @*<label for="location"> &nbsp; &nbsp; &nbsp; &nbsp; Location&nbsp; &nbsp; &nbsp;</label>
         <input type="text" id="Location" placeholder="City" name="location" required>*@
-                <label for="location">&nbsp; &nbsp; Location &nbsp;</label>
-                <select name="location" id="Location" class="dummy_form">
-                    <option value="select">Choose City </option>
-                    <option value="Lahore"> Lahore  </option>
-                    <option value="Karachi"> Karachi  </option>
-                    <option value="Islamabad"> Islamabad  </option>
-                    <option value="Peshawar"> Peshawar  </option>
-                    <option value="Gujranwala"> Gujranwala  </option>
-                </select>
-                <br><br>
+                    <label for="location">&nbsp; &nbsp; Location &nbsp;</label>
+                    <select name="location" id="Location" class="dummy_form">
+                        <option value="select">Choose City </option>
+                        <option value="Lahore"> Lahore  </option>
+                        <option value="Karachi"> Karachi  </option>
+                        <option value="Islamabad"> Islamabad  </option>
+                        <option value="Peshawar"> Peshawar  </option>
+                        <option value="Gujranwala"> Gujranwala  </option>
+                    </select>
+                    <br><br>
 
-                <label for="carType"> &nbsp; &nbsp; Type&nbsp; &nbsp; &nbsp; &nbsp;</label>
-                <input type="text" id="CarType" placeholder="CC e.g.(1000CC)" name="carType" required>
-                &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;
-                <label for="carPrice"> Price&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
-                <input type="text" id="CarPrice" placeholder="e.g. 20 lac" name="carPrice" required>
-                <br><br>
+                    <label for="carType"> &nbsp; &nbsp; Type&nbsp; &nbsp; &nbsp; &nbsp;</label>
+                    <input type="text" id="CarType" placeholder="CC e.g.(1000CC)" name="carType" required>
+                    &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;
+                    <label for="carPrice"> Price&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
+                    <input type="number" id="CarPrice" placeholder="e.g. 20 lac" name="carPrice" required>
+                    <br><br>
 
-                <label for="Color"> &nbsp; &nbsp; &nbsp;Color&nbsp; &nbsp; &nbsp;</label>
-                <input type="text" id="Color" placeholder="e.g. black" name="Color" required>
+                    <label for="Color"> &nbsp; &nbsp; &nbsp;Color&nbsp; &nbsp; &nbsp;</label>
+                    <input type="text" id="Color" placeholder="e.g. black" name="Color" required>
 
-                <label for="RegistrationNo"> &nbsp; &nbsp; Registration&nbsp; &nbsp;&nbsp;</label>
-                <input type="text" id="RegistrationNo" placeholder="e.g. LEX-1234" name="RegistrationNo" required />
-                <br><br>
+                    <label for="RegistrationNo"> &nbsp; &nbsp; Registration&nbsp; &nbsp;&nbsp;</label>
+                    <input type="text" id="RegistrationNo" placeholder="e.g. LEX-1234" name="RegistrationNo" required />
+                    <br><br>
 
-                <textarea maxlength="400" rows="8" cols="60" name="Description" id="Description" placeholder="Write brief description..." spellcheck="true"></textarea>
-                <br><br>
+                    <textarea maxlength="400" rows="8" cols="60" name="Description" id="Description" placeholder="Write brief description..." spellcheck="true"></textarea>
+                    <br><br>
 
-                <input type="file" accept="image/*" id="img" name="img" value="img" enctype="multipart/form-data" method="post" required />
-                <br><br>
-                <button type="submit" class="button">Post ad</button>
-            </form>
+                    <input type="file" accept="image/*" id="img" name="img" value="img" enctype="multipart/form-data" method="post" required />
+                    <br><br>
+                    
+                    <button type="submit" class="button" >Post ad</button>
+                </div>
+                    </form>
             }
         </div>
 

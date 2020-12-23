@@ -100,7 +100,7 @@ namespace WebApplication5.Controllers
         };
 
 
-        public ActionResult creatingPost(HttpPostedFileBase img, String CarName, String CarMake, String Color, String mobileno, String Model,  String RegistrationNo, String CarType, String OwnerCNIC, String Location, String CarPrice, String Description)
+        public ActionResult creatingPost(HttpPostedFileBase img, String CarName, String CarMake, String Color, String mobileno, String Model,  String RegistrationNo, String CarType, String Location, String CarPrice, String Description)
         {
             int model =Convert.ToInt32(Model);
             String fileName = "";
@@ -115,7 +115,7 @@ namespace WebApplication5.Controllers
                 // TempData["temp"] = "Successfuly uploaded";
                 //TempData["picname"] = fileName;
             }
-            int result = CRUD.creatingPost(fileName,path,CarName,CarMake,Color, mobileno,model,RegistrationNo,CarType,OwnerCNIC,Location,CarPrice,Description);
+            int result = CRUD.creatingPost(fileName,path,CarName,CarMake,Color, mobileno,model,RegistrationNo,CarType,User.CNIC,Location,CarPrice,Description);
             //int result = CRUD.creatingPost("AudiR8", "Audi","Black", "0333-4595785",2020, "Lel=5561", "2400cc", "10101-4678367-9", "California", "50000000", "10/10 Genyoan");
             if (result == -1)
             {

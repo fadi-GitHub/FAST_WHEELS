@@ -122,3 +122,32 @@ function validationAS() {
     }
     return true;
 }
+
+function postAddValidation() {
+    var phone_no = document.getElementById("mobileno").value;
+    var phone_no_regex = /^[0-9+]{11}$/;
+
+    if (phone_no_regex.test(phone_no)) {
+        return true;
+    }
+    else {
+        alert('Wrong Phone number entered');
+        return false;
+
+    }
+    return true;
+}
+function signUpValidation() {
+    var cnic_no = document.getElementById("cnic").value;
+    var cnic_no_regex = /^[0-9+]{5}-[0-9+]{7}-[0-9]{1}$/;
+
+    if (cnic_no_regex.test(cnic_no)) {
+        return true;
+    }
+    else {
+        alert('Wrong CNIC number entered');
+        return false;
+
+    }
+    return true;
+}
