@@ -5,6 +5,7 @@
 @{
 
     var usedCarList = ViewData["usedCarsList"] as List<usedCars>;
+    var alert = ViewData["alert"] as String;
 }
 
 
@@ -111,8 +112,7 @@
                   foreach (usedCars temp in usedCarList)
                  {
 
-
-                   <div class="thumbnail">
+                   <div @*class="thumbnail"*@  class="usedCarBox" allign="centre">
                       <img src="~/usedCarImages/@temp.imageName" alt="@temp.CarMake+@temp.CarName" width="2000" class="cards" />
                       <h4>@temp.CarMake @temp.CarName @temp.Model</h4>
                       <p class="tag"><strong>pkr @temp.CarPrice </strong> </p>
@@ -121,12 +121,18 @@
                       <a href="@Url.Action("buyUsedCar", "Home", new { CarRegNo = @temp.RegistrationNo })">Buy Now</a>
                     
                    </div>
-
+                   <br>
                   }
                 }
                 else
                 {
                     <h5> Nothing Found</h5>
+                }
+                @if(alert=="T")
+                {
+                    <script >
+                     alert("Cannot buy your own Car");
+                     </script>
                 }
             </form>
         </div>

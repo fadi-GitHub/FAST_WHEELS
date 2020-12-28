@@ -52,17 +52,19 @@
             {
                 foreach (Dealers temp in dealersList)
                 {
-            <div class="column2">
-                <div class="card2" align="center">
-                    <img  src="~/dealerImages/@temp.ImageName" >
-                    <div class="container2">
-                        <h3>@temp.Name  </h3>
-                        <p class="title">@temp.City</p>
-                        <p> @temp.Address</p>
-                        <p>@temp.PhoneNo</p>
-                    </div>
+        <div class="column2">
+            <div class="card2" align="center">
+                <img src="~/dealerImages/@temp.ImageName">
+                <div class="container2">
+                    <h3>@temp.Name  </h3>
+                    <p class="title">@temp.City</p>
+                    <p> @temp.Address</p>
+                    <p>@temp.PhoneNo</p>
                 </div>
+
             </div>
+            <br>
+        </div>
                 }
             }
             else 
