@@ -138,6 +138,7 @@ namespace WebApplication5.Controllers
         {
             if(TempData["usedCarsList"]!=null)
             ViewData["usedCarsList"] = TempData["usedCarsList"];
+            ViewData["alert"] = TempData["alert"];
             return View();
         }
         
@@ -156,10 +157,15 @@ namespace WebApplication5.Controllers
             }
             else if (result == 0)
             {
+                List<usedCars> usedCarsList = CRUD.getAllUsedCar();
+                TempData["usedCarsList"] = usedCarsList;
 
                 String data = "Car Cannot be bought";
-                return View("index", (object)data);
+                //Boolean flag = true;
+                TempData["alert"] = "T";
+                return RedirectToAction("UsedCar");
             }
+            
             return RedirectToAction("getAllUsedCars");
         }
 
@@ -195,6 +201,8 @@ namespace WebApplication5.Controllers
             }
             List<usedCars> usedCarsList = CRUD.searchUsedCar(make,Model,Location,minRange,maxRange);
             TempData["usedCarsList"] = usedCarsList;
+            //Boolean flag = false;
+            TempData["alert"] = "F";
             return RedirectToAction("UsedCar");
         }
         
@@ -203,6 +211,8 @@ namespace WebApplication5.Controllers
         {
             List<usedCars> usedCarsList = CRUD.getAllUsedCar();
             TempData["usedCarsList"] = usedCarsList;
+            //Boolean flag = false;
+            TempData["alert"] = "F";
             return RedirectToAction("UsedCar");
         }
 

@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /* Body */
 body {
 	font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
@@ -77,8 +77,8 @@ ul li:hover a {
 	display: inline-block;
 	width: 100%;
 	background-color: #FFFFFF;
-	/* [disabled]min-width: 400px;
-*/
+	[disabled]min-width: 400px;
+	align-content: center;
 	padding-bottom: 10px;
 	padding-top: 0px;
 	margin-top: 10px;
@@ -97,6 +97,19 @@ ul li:hover a {
 	padding-top: 20px;
 	border-bottom: 4px solid #6DC7D0;
 }
+.usedCarBox {
+	width: 50%;
+	text-align: center;
+	background-color: #F8F8F8;
+	padding-bottom: 20px;
+	border-radius: 3px;
+	border-bottom: 4px solid #6DC7D0;
+	margin-top: 35px;
+	padding-top: 20px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
 .gallery .thumbnail h4 {
 	margin-top: 5px;
 	margin-bottom: 5px;
