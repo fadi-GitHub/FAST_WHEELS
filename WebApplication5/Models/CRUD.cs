@@ -706,7 +706,37 @@ namespace WebApplication5.Models
             }
             return soldlist;
         }
+
+        public static int likeCar(String RegNo)
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlCommand cmd;
+            int result = 0;
+            try
+            {
+                cmd = new SqlCommand("increment_likes", con); //for running procedure
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.Add("@reg_no", SqlDbType.VarChar, 10).Value = RegNo;
+
+                cmd.ExecuteNonQuery();
+
+                result = 1;
+            }
+
+            catch (SqlException ex)
+            {
+                Console.WriteLine("SQL Error" + ex.Message.ToString());
+                result = -1;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return result;
+        }
     }
+
     
 }
 //hello just checking 
