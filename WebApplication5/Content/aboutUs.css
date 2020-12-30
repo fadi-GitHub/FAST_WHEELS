@@ -22,6 +22,13 @@ html {
 	/*padding: 8px;*/
 }
 
+.column9 {
+	float: left;
+	width: 25%;
+	margin-bottom: 60px;
+	padding: 0 8px;
+}
+
 
 .column3 {
 	float: left;
