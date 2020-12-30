@@ -365,6 +365,14 @@ namespace WebApplication5.Controllers
             return RedirectToAction("profile");
         }
 
+        public ActionResult signOut()
+        {
+            User.CNIC = "";
+            User.Email = "";
+            User.Password = "";
+            return RedirectToAction("HomePage");
+
+        }
 
     }
 }

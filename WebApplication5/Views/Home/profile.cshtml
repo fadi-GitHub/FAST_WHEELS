@@ -32,112 +32,112 @@
                 <ul>
                     <li><a>@Html.ActionLink("Home", "HomePage", "Home")</a></li>
                     <li> <a href="@Url.Action("getAllUsedCars","Home")">UsedCar</a></li>
-                    <li> <a href="@Url.Action("getAllNewCars","Home")">NEW CARS</a></li>
-                    <li><a>@Html.ActionLink("Sign In", "Index", "Home")</a> </li>
-                    <li><a>@Html.ActionLink("Sign Up", "signUP", "Home")</a> </li>
+                    <li> <a href="@Url.Action("getAllNewCars","Home")">New Cars</a></li>
                     <li> <a href="@Url.Action("getAllDealers","Home")">Dealers</a></li>
                     <li> <a href="@Url.Action("getAllAutoParts","Home")">Auto Parts</a></li>
                     <li><a>@Html.ActionLink("About Us", "aboutUs", "Home")</a></li>
                     <li class="button"><a>@Html.ActionLink("Post an Ad", "postanAdd", "Home") </a> </li>
+                    <li><a>@Html.ActionLink("Sign In", "Index", "Home")</a> </li>
+                    <li><a>@Html.ActionLink("Sign Up", "signUP", "Home")</a> </li>
 
                 </ul>
             </nav>
         </header>
 
-            <div align="" id="profile_Form">
-                <form action="#" method="post" name="profile" id="profile_container">
-                    <h1 align="center">Profile Info</h1>
-                    <div id="profile_pic"><img src="~/images/profile.jpeg" /></div>
-                    
-                    <div align="" id="profile_Form">
-                        <strong>
-                            <label for="fname">@Userdetail.firstName </label>
-                            <br /><br />
-                            <label for="lname">@Userdetail.lastName </label>
-                            <br /><br />
-                            <label for="email">@Userdetail.email </label>
-                            <br /><br />
-                            <label for="cnic">@Userdetail.cnic </label>
-                            <br /><br />
-                        </strong>
-                    </div>
-                </form>
-                <form method="post" action="../Home/updatePassword" onsubmit="return save(this,@password);">
+        <div align="" id="profile_Form">
+            <form action="#" method="post" name="profile" id="profile_container">
+                <h1 align="center">Profile Info</h1>
+                <div id="profile_pic"><img src="~/images/profile.jpeg" /></div>
 
-                    <h3>Update Password</h3>
-                    <label for="oldPassword">Current Password </label>
-                    <br>
-                    <input type="password" id="oldPassword" name="oldPassword" placeholder="Password" maxlength="15" size="30" />
-                    <br /><br />
-                    <label for="newPassword">New Password </label>
-                    <br>
-                    <input type="password" id="newPassword" name="newPassword" placeholder="6 to 15 characters" maxlength="15" size="30" />
-                    <br /><br />
+                <div align="" id="profile_Form">
+                    <strong>
+                        <label for="fname">@Userdetail.firstName </label>
+                        <br /><br />
+                        <label for="lname">@Userdetail.lastName </label>
+                        <br /><br />
+                        <label for="email">@Userdetail.email </label>
+                        <br /><br />
+                        <label for="cnic">@Userdetail.cnic </label>
+                        <br /><br />
+                    </strong>
+                </div>
+            </form>
+            <form method="post" action="../Home/updatePassword" onsubmit="return save(this,@password);">
 
-                    @*< id="uPass" value="@password"></>*@
-                    <input type="submit" id="update_button" value="Save Changes" />
-                    <br /><br />
+                <h3>Update Password</h3>
+                <label for="oldPassword">Current Password </label>
+                <br>
+                <input type="password" id="oldPassword" name="oldPassword" placeholder="Password" maxlength="15" size="30" />
+                <br /><br />
+                <label for="newPassword">New Password </label>
+                <br>
+                <input type="password" id="newPassword" name="newPassword" placeholder="6 to 15 characters" maxlength="15" size="30" />
+                <br /><br />
 
-                </form>
-                <h3>Cars Bought</h3>
-                <table id="userRecord" width="550px" style="overflow-x: auto">
-                    <tr>
-                        <th colspan="7">Features</th>
-                    </tr>
-                    <tr>
-                        <td>Name</td>
-                        <td>Make</td>
-                        <td>Color</td>
-                        <td>Model</td>
-                        <td>Reg Number</td>
-                        <td>Type</td>
-                        <td>Price</td>
-                    </tr>
-                    @if (boughtList != null)
-                    {
-                        foreach (carRecords temp in boughtList)
-                        {
-                            <tr>
-                                <td>@temp.carName</td>
-                                <td>@temp.carMake</td>
-                                <td>@temp.carColor</td>
-                                <td>@temp.carModel</td>
-                                <td>@temp.carRegNo</td>
-                                <td>@temp.carType</td>
-                                <td>@temp.carPrice</td>
-                            </tr>
-                        }
-                    }
-                    else
+                @*< id="uPass" value="@password"></>*@
+                <input type="submit" id="update_button" value="Save Changes" />
+                <br /><br />
+
+            </form>
+            <h3>Cars Bought</h3>
+            <table id="userRecord" width="550px" style="overflow-x: auto">
+                <tr>
+                    <th colspan="7">Features</th>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>Make</td>
+                    <td>Color</td>
+                    <td>Model</td>
+                    <td>Reg Number</td>
+                    <td>Type</td>
+                    <td>Price</td>
+                </tr>
+                @if (boughtList != null)
+                {
+                    foreach (carRecords temp in boughtList)
                     {
                         <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
+                            <td>@temp.carName</td>
+                            <td>@temp.carMake</td>
+                            <td>@temp.carColor</td>
+                            <td>@temp.carModel</td>
+                            <td>@temp.carRegNo</td>
+                            <td>@temp.carType</td>
+                            <td>@temp.carPrice</td>
                         </tr>
                     }
-                </table>
+                }
+                else
+                {
+                    <tr>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                }
+            </table>
 
-                <h3>Cars Sold</h3>
-                <table id="userRecord" width="550px" style="overflow-x: auto">
-                    <tr>
-                        <th colspan="7" align="right">Features</th>
-                    </tr>
-                    <tr>
-                        <td>Name</td>
-                        <td>Make</td>
-                        <td>Color</td>
-                        <td>Model</td>
-                        <td>Reg Number</td>
-                        <td>Type</td>
-                        <td>Price</td>
-                    </tr>
-                    @if (soldList != null)
-                    {
+            <h3>Cars Sold</h3>
+            <table id="userRecord" width="550px" style="overflow-x: auto">
+                <tr>
+                    <th colspan="7" align="right">Features</th>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>Make</td>
+                    <td>Color</td>
+                    <td>Model</td>
+                    <td>Reg Number</td>
+                    <td>Type</td>
+                    <td>Price</td>
+                </tr>
+                @if (soldList != null)
+                {
                     foreach (carRecords temp in soldList)
                     {
                         <tr>
@@ -149,11 +149,11 @@
                             <td>@temp.carType</td>
                             <td>@temp.carPrice</td>
                         </tr>
-                        }
                     }
-                    else
-                    {
-                      <tr>
+                }
+                else
+                {
+                    <tr>
                         <td>-</td>
                         <td>-</td>
                         <td>-</td>
@@ -161,14 +161,17 @@
                         <td>-</td>
                         <td>-</td>
                         <td>-</td>
-                      </tr>
-                    }
+                    </tr>
+                }
 
 
-                </table>
+            </table>
 
+            <form method="post" action="../Home/signOut">
+                <input type="submit" class="sign_out" value="Sign Out" />
+            </form>
 
-            </div>
+        </div>
                     <section class="footer_banner" id="contact">
                         <h2 class="hidden">Footer Banner Section </h2>
                         <p class="footer01">FOR THE LATEST NEWS UPDATES, visit our site or contact us at FASTwheels@lhr.pk</p>
