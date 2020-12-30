@@ -206,6 +206,11 @@ namespace WebApplication5.Controllers
             return RedirectToAction("UsedCar");
         }
         
+        public ActionResult LikeCar(String RegNo)
+        {
+            int result=CRUD.likeCar(RegNo);
+            return RedirectToAction("getAllUsedCars");
+        }
 
         public ActionResult getAllUsedCars()
         {
@@ -359,5 +364,7 @@ namespace WebApplication5.Controllers
             TempData["userDetails"] = obj;
             return RedirectToAction("profile");
         }
+
+
     }
 }
