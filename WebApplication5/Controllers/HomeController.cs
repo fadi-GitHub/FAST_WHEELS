@@ -211,7 +211,13 @@ namespace WebApplication5.Controllers
             int result=CRUD.likeCar(CarRegNo);
             return RedirectToAction("getAllUsedCars");
         }
-
+        public ActionResult topUsedCars()
+        {
+            List<usedCars> usedCarsList = CRUD.topLikedcars();
+            TempData["usedCarsList"] = usedCarsList;
+            TempData["alert"] = "F";
+            return RedirectToAction("UsedCar");
+        }
         public ActionResult getAllUsedCars()
         {
             List<usedCars> usedCarsList = CRUD.getAllUsedCar();
