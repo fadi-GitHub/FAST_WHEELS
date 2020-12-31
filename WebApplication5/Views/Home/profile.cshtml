@@ -80,36 +80,39 @@
 
             </form>
             <h3>Cars Bought</h3>
-            <table id="userRecord" width="550px" style="overflow-x: auto">
-                <tr>
-                    <th colspan="7">Features</th>
-                </tr>
-                <tr>
-                    <td>Name</td>
-                    <td>Make</td>
-                    <td>Color</td>
-                    <td>Model</td>
-                    <td>Reg Number</td>
-                    <td>Type</td>
-                    <td>Price</td>
-                </tr>
+            <table class="styled-table" id="userRecord" width="550px" style="overflow-x: auto">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Make</th>
+                        <th>Color</th>
+                        <th>Model</th>
+                        <th>Reg Number</th>
+                        <th>Type</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+
                 @if (boughtList != null)
                 {
                     foreach (carRecords temp in boughtList)
                     {
-                        <tr>
-                            <td>@temp.carName</td>
-                            <td>@temp.carMake</td>
-                            <td>@temp.carColor</td>
-                            <td>@temp.carModel</td>
-                            <td>@temp.carRegNo</td>
-                            <td>@temp.carType</td>
-                            <td>@temp.carPrice</td>
-                        </tr>
+                        <tbody>
+                            <tr class="active-row">
+                                <td>@temp.carName</td>
+                                <td>@temp.carMake</td>
+                                <td>@temp.carColor</td>
+                                <td>@temp.carModel</td>
+                                <td>@temp.carRegNo</td>
+                                <td>@temp.carType</td>
+                                <td>@temp.carPrice</td>
+                            </tr>
+                        </tbody>
                     }
                 }
                 else
                 {
+                    <tbody>
                     <tr>
                         <td>-</td>
                         <td>-</td>
@@ -119,6 +122,8 @@
                         <td>-</td>
                         <td>-</td>
                     </tr>
+                </tbody>
+
                 }
             </table>
 
