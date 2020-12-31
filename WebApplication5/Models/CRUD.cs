@@ -292,6 +292,55 @@ namespace WebApplication5.Models
             return usedCarsList;
 
         }
+
+        //top 3 used cars
+        public static List<usedCars> topLikedcars()
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlCommand cmd;
+            List<usedCars> usedCarsList = new List<usedCars>();
+            try
+            {
+                cmd = new SqlCommand("top_3_liked_cars", con); //for running procedure
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+
+                while (rdr.Read())
+                {
+                    usedCars carObj = new usedCars();
+                    carObj.imageName = rdr["images"].ToString();
+                    carObj.CarMake = rdr["CarMake"].ToString();
+                    carObj.CarName = rdr["CarName"].ToString();
+                    carObj.Color = rdr["Color"].ToString();
+                    carObj.mobileno = rdr["mobileno"].ToString();
+                    carObj.Location = rdr["Location"].ToString();
+                    carObj.Model = Convert.ToInt32(rdr["Model"].ToString());
+                    carObj.Description = rdr["Description"].ToString();
+                    carObj.CarPrice = rdr["CarPrice"].ToString();
+                    carObj.CarType = rdr["CarType"].ToString();
+                    carObj.OwnerCNIC = rdr["OwnerCNIC"].ToString();
+                    carObj.RegistrationNo = rdr["RegistrationNo"].ToString();
+                    usedCarsList.Add(carObj);
+                }
+
+            }
+
+            catch (SqlException ex)
+            {
+                Console.WriteLine("SQL Error" + ex.Message.ToString());
+                return null; //-1 will be interpreted as "error while connecting with the database."
+            }
+            finally
+            {
+                con.Close();
+            }
+            return usedCarsList;
+
+        }
+
         ///////////////////////////////////
         public static List<newCars> getAllNewCar()
         {
