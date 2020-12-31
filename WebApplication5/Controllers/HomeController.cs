@@ -206,9 +206,9 @@ namespace WebApplication5.Controllers
             return RedirectToAction("UsedCar");
         }
         
-        public ActionResult LikeCar(String RegNo)
+        public ActionResult LikeCar(String CarRegNo)
         {
-            int result=CRUD.likeCar(RegNo);
+            int result=CRUD.likeCar(CarRegNo);
             return RedirectToAction("getAllUsedCars");
         }
 

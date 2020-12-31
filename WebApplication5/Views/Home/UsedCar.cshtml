@@ -111,15 +111,21 @@
                   foreach (usedCars temp in usedCarList)
                  {
 
-                   <div @*class="thumbnail"*@  class="usedCarBox" allign="centre">
-                      <img src="~/usedCarImages/@temp.imageName" alt="@temp.CarMake+@temp.CarName" width="2000" class="cards" />
-                      <h4>@temp.CarMake @temp.CarName @temp.Model</h4>
-                      <p class="tag"><strong>pkr @temp.CarPrice </strong> </p>
-                      <p class="tag">@temp.Description</p>
-                      <br>
-                    <button>  <a class="used_car" href="@Url.Action("buyUsedCar", "Home", new { CarRegNo = @temp.RegistrationNo })">Buy Now</a></button>
-                    <button id="heart" onClick="like()"><i class="fa fa-heart-o" style="font-size:18px;"></i></button>
-                   </div>
+                <div @*class="thumbnail"*@ class="usedCarBox" allign="centre">
+                    <img src="~/usedCarImages/@temp.imageName" alt="@temp.CarMake+@temp.CarName" width="2000" class="cards" />
+                    <h4>@temp.CarMake @temp.CarName @temp.Model</h4>
+                    <p class="tag"><strong>pkr @temp.CarPrice </strong> </p>
+                    <p class="tag">@temp.Description</p>
+                    <br>
+                    <button class="bt">  <a class="used_car" href="@Url.Action("buyUsedCar", "Home", new { CarRegNo = @temp.RegistrationNo })">Buy Now</a></button>
+                    <button class="bt" onclick="like"><a class="like_car" href="@Url.Action("LikeCar", "Home", new { CarRegNo = @temp.RegistrationNo })"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+     width="30" height="30"
+     viewBox="0 0 80 80"
+     style=" fill:#000000;">
+<path fill="#ffcfcf" d="M40.014,70.925C36.786,68.966,2.5,47.711,2.5,29.5C2.5,20.073,7.097,10,20,10 c9.238,0,16.317,6.333,19.571,11.757L40,22.472l0.429-0.714C43.839,16.073,50.771,10,60,10c12.089,0,17.5,9.794,17.5,19.5 C77.5,50.076,43.278,69.154,40.014,70.925z"></path>
+<path fill="#f7a3a3" d="M60,10.5c11.743,0,17,9.543,17,19c0,19.849-32.548,38.417-36.972,40.848 C35.646,67.663,3,47.06,3,29.5c0-9.185,4.466-19,17-19c9.03,0,15.955,6.203,19.143,11.514L40,23.444l0.857-1.429 C44.198,16.448,50.98,10.5,60,10.5 M60,9.5c-9.286,0-16.424,6.04-20,12c-3.576-5.96-10.855-12-20-12c-12.211,0-18,9.218-18,20 c0,19.522,38,42,38,42s38-19.952,38-42C78,18.834,71.857,9.5,60,9.5L60,9.5z"></path></svg> @*<i class="fa fa-heart-o" style="font-size:18px;"></i*@</a></button>
+                         
+                </div> 
                    <br>
                   }
                 }

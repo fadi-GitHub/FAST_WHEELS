@@ -906,6 +906,30 @@ th, td {
 	align-items: center;
 }
 
+.bt {
+	border:none;
+	outline:none;
+	background:none;
+}
+.like_car {
+
+	background-color: #F8F8F8;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 24px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 12px;
+	transition-duration: 0.4s;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 	.used_car:hover {
 		background-color: #4CAF50; /* Green */
 		color: white;
