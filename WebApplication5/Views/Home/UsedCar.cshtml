@@ -19,6 +19,7 @@
     <title>Used Cars</title>
     <link href="~/Content/simpleGridTemplate.css" rel="stylesheet" />
     <link href="~/Content/singlePageTemplate.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="~/myScript.js"></script>
 
 </head>
@@ -117,7 +118,7 @@
                       <p class="tag">@temp.Description</p>
                       <br>
                     <button>  <a class="used_car" href="@Url.Action("buyUsedCar", "Home", new { CarRegNo = @temp.RegistrationNo })">Buy Now</a></button>
-                    
+                    <button id="heart" onClick="like()"><i class="fa fa-heart-o" style="font-size:18px;"></i></button>
                    </div>
                    <br>
                   }

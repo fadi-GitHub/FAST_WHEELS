@@ -945,3 +945,7 @@ th, td {
 			color: #009879;
 			cursor:pointer;
 		}
+
+.liked {
+	color: red;
+}
