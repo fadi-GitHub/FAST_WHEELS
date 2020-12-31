@@ -151,3 +151,8 @@ function signUpValidation() {
     }
     return true;
 }
+
+function like() {
+    var element = document.getElementById("heart");
+    element.classList.toggle("liked");
+}
