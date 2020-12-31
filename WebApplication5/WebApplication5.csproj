@@ -182,6 +182,8 @@
     <Content Include="images\member4.png" />
     <Content Include="images\merchant.jpg" />
     <Content Include="images\mira.jpg" />
+    <Content Include="images\pink1.png" />
+    <Content Include="images\pinkheart.png" />
     <Content Include="images\premio.jpg" />
     <Content Include="images\prod1.jpg" />
     <Content Include="images\prod2.jpg" />
@@ -194,6 +196,8 @@
     <Content Include="images\prod9.jpg" />
     <Content Include="images\profile.jpeg" />
     <Content Include="images\profile.png" />
+    <Content Include="images\red1.png" />
+    <Content Include="images\redheart.png" />
     <Content Include="images\sam.jpg" />
     <Content Include="images\Suzuki.png" />
     <Content Include="images\v8.jpg" />
